@@ -1,0 +1,25 @@
+//Border radius
+$border-radius-base: 5px;
+
+//Box shadow
+$box-shadow-medium: 0 0 40px rgba($dark-gray, .1);
+
+//Fonts
+$Merriweather-Regular: 'Merriweather Regular';
+$Merriweather-Bold: 'Merriweather Bold';
+
+$WorkSans-Regular: 'WorkSans Regular';
+$WorkSans-Semibold: 'WorkSans Semibold';
+$WorkSans-Bold: 'WorkSans Bold';
+
+//Responsive
+$tablet: 768px;
+$laptop: 1024px;
+$desktop: 1440px;
+
+//Letter spacing
+$ls-normal: 1px;
+
+//Transition
+$easing: all .3s ease-in-out;
+

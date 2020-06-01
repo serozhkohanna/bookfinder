@@ -13,13 +13,15 @@ import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
-	<div className="App">
+	<div className="page">
 	  <Header/>
-	  <Switch>
-		<Route exact path={HOME_PAGE} component={MainPage}/>
-		<Route exact path={SEARCH_PAGE} component={SearchPage}/>
-		<Route component={Page404}/>
-	  </Switch>
+	  <div className="page-content">
+		<Switch>
+		  <Route exact path={HOME_PAGE} component={MainPage}/>
+		  <Route exact path={SEARCH_PAGE} component={SearchPage}/>
+		  <Route component={Page404}/>
+		</Switch>
+	  </div>
 	  <Footer/>
 	</div>
   );
