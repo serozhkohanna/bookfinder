@@ -1,0 +1,60 @@
+@import "src/App";
+
+header {
+  height: 65px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: $box-shadow-medium;
+  padding: 0 50px;
+  background: $white;
+  position: fixed;
+
+  h1 {
+    font-family: $Merriweather-Regular;
+    font-size: 18px;
+    letter-spacing: $ls-normal;
+    z-index: 10;
+
+    span {
+      font-weight: 800;
+    }
+  }
+
+  .navigation {
+    display: flex;
+    align-items: center;
+    z-index: 10;
+
+    &-item {
+      margin-right: 40px;
+      position: relative;
+
+      &:after {
+        content: '';
+        position: absolute;
+        width: 50%;
+        height: 3px;
+        background: $yellow;
+        bottom: 0;
+        left: 0;
+      }
+
+      &:hover {
+        &:after {
+          width: 100%;
+          transition: $easing;
+        }
+      }
+
+      &:last-child {
+        margin-right: 0;
+
+        &:after {
+          content: none;
+        }
+      }
+    }
+  }
+}
