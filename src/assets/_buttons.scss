@@ -1,0 +1,23 @@
+.button {
+  border-radius: $border-radius-base;
+  text-align: center;
+  font-family: $WorkSans-Semibold;
+  letter-spacing: $ls-normal;
+  cursor: pointer;
+
+  &.primary {
+    text-transform: uppercase;
+    background: $yellow;
+    border: 1px solid $deep-blue;
+    height: 45px;
+
+    &:hover {
+      box-shadow: $box-shadow-button;
+    }
+  }
+
+  &.is-large {
+    max-width: 180px;
+    width: 100%;
+  }
+}

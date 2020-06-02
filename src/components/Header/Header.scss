@@ -7,9 +7,20 @@ header {
   align-items: center;
   justify-content: space-between;
   box-shadow: $box-shadow-medium;
-  padding: 0 50px;
+  padding: 0 10px;
   background: $white;
   position: fixed;
+  transition: $easing;
+  @media (min-width: $laptop) {
+    padding: 0 50px;
+  }
+
+  &.header-small {
+    height: 55px;
+    box-shadow: none;
+    border-bottom: 1px solid $light-blue;
+    transition: $easing;
+  }
 
   h1 {
     font-family: $Merriweather-Regular;
@@ -28,8 +39,25 @@ header {
     z-index: 10;
 
     &-item {
-      margin-right: 40px;
+      margin-right: 20px;
       position: relative;
+      @media (min-width: $tablet) {
+        margin-right: 40px;
+      }
+
+      .favourite-icon {
+        width: 25px;
+        @media (min-width: $tablet) {
+          width: 30px;
+        }
+      }
+
+      &.hide-mobile {
+        display: none;
+        @media (min-width: $tablet) {
+          display: block;
+        }
+      }
 
       &:after {
         content: '';

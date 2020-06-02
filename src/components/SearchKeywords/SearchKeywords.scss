@@ -69,5 +69,10 @@
     position: absolute;
     width: 100%;
     left: 0;
+    display: none;
+
+    @media (min-width: $tablet) {
+      display: flex;
+    }
   }
 }
