@@ -9,9 +9,7 @@ import Favourites from "../FavouritesButton/FavouritesButton";
 
 const Header = ({pageHeader}: any) => {
   const handlePageScroll = () => {
-	// console.log(window.pageYOffset)
-	//TODO
-	//add on scroll event and change header styling.
+	window.pageYOffset >= 60 ? pageHeader.classList.add('header-small') : pageHeader.classList.remove('header-small');
   }
   window.addEventListener('scroll', handlePageScroll);
 
@@ -19,7 +17,7 @@ const Header = ({pageHeader}: any) => {
   return <header ref={(header) => pageHeader = header}>
 	<h1>BookFinder</h1>
 	<ul className='navigation'>
-	  <li className='navigation-item'>
+	  <li className='navigation-item hide-mobile'>
 		<NavLink activeClassName='navigation-item-active' to={HOME_PAGE}>Home</NavLink>
 	  </li>
 	  <li className='navigation-item'>
@@ -29,7 +27,7 @@ const Header = ({pageHeader}: any) => {
 		<Favourites/>
 	  </li>
 	</ul>
-	<SearchKeywords className={'header-search'} />
+	<SearchKeywords className={'header-search'}/>
   </header>
 }
 

@@ -2,8 +2,8 @@ import React from 'react';
 import HeartIcon from '../../assets/icons/heart.png';
 
 const FavouritesButton = () => {
-  return <button>
-	<img src={HeartIcon} alt=""/>
+  return <button className='favourite-icon'>
+	<img src={HeartIcon} alt="favourites"/>
   </button>
 }
 

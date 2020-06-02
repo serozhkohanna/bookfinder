@@ -28,7 +28,7 @@ const Hero = () => {
 	  <GetStartBtn/>
 	</div>
 	<div className="hero-illustration">
-	  <img src={HeroPic} alt="hero"/>
+	  {/*<img src={HeroPic} alt="hero"/>*/}
 	</div>
 	<div className="hero-anchor">
 	  <Anchor/>
