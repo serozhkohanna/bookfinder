@@ -10,6 +10,8 @@ import Favourites from "../FavouritesButton/FavouritesButton";
 const Header = ({pageHeader}: any) => {
   const handlePageScroll = () => {
 	// console.log(window.pageYOffset)
+	//TODO
+	//add on scroll event and change header styling.
   }
   window.addEventListener('scroll', handlePageScroll);
 

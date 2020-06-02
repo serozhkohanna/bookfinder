@@ -1,0 +1,52 @@
+@import "../../assets/all";
+
+.hero {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 130px;
+  flex-wrap: wrap;
+  margin-bottom: 100px;
+
+  &-content {
+    max-width: 450px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 80px;
+
+    .button {
+      align-self: center;
+    }
+  }
+
+  &-title {
+    margin-bottom: 35px;
+    font-family: $Merriweather-Regular;
+    font-weight: 300;
+  }
+
+  &-desc {
+    margin-bottom: 45px;
+    font-family: $Merriweather-Regular;
+    letter-spacing: $ls-small;
+    line-height: $lh-medium;
+
+    p {
+      margin-bottom: 20px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &-illustration {
+
+  }
+
+  &-anchor {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+}

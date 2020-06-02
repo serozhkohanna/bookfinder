@@ -3,6 +3,7 @@ $border-radius-base: 5px;
 
 //Box shadow
 $box-shadow-medium: 0 0 40px rgba($dark-gray, .1);
+$box-shadow-button: 5px 10px 4px rgba(14, 8, 75, 0.1);
 
 //Fonts
 $Merriweather-Regular: 'Merriweather Regular';
@@ -19,6 +20,10 @@ $desktop: 1440px;
 
 //Letter spacing
 $ls-normal: 1px;
+$ls-small: .3px;
+
+//Line height
+$lh-medium: 1.7;
 
 //Transition
 $easing: all .3s ease-in-out;
