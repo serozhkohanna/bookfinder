@@ -1,6 +1,5 @@
 import React from 'react';
 import './Hero.scss';
-import HeroPic from '../../assets/icons/hero.svg';
 
 import GetStartBtn from "../GetStartBtn/GetStartBtn";
 import Anchor from "../Anchor/Anchor";
@@ -28,10 +27,9 @@ const Hero = () => {
 	  <GetStartBtn/>
 	</div>
 	<div className="hero-illustration">
-	  {/*<img src={HeroPic} alt="hero"/>*/}
 	</div>
 	<div className="hero-anchor">
-	  <Anchor/>
+	  <Anchor id={'genre-browse'}/>
 	</div>
   </section>
 }
