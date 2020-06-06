@@ -7,6 +7,13 @@ h2 {
   }
 }
 
+h3 {
+  font-size: 36px;
+  @media (min-width: $laptop) {
+    font-size: 48px;
+  }
+}
+
 a.link-bg,
 a.link-bg:link {
   text-decoration: none;

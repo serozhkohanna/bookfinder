@@ -1,7 +1,11 @@
 import React from 'react';
 
-const Anchor = () => {
-  return <a href="" className='anchor'></a>
+interface Props {
+  id: string;
+}
+
+const Anchor = ({id}: Props) => {
+  return <a href={`#${id}`} className='anchor'/>
 }
 
 export default Anchor;

@@ -1,0 +1,72 @@
+@import "src/App";
+
+.genres {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 50px;
+  @media (min-width: $tablet) {
+    margin-bottom: 100px;
+  }
+
+  &-title {
+    width: 100%;
+    font-family: $WorkSans-Semibold;
+    letter-spacing: $ls-small;
+    position: relative;
+    margin-bottom: 40px;
+    @media (min-width: $laptop) {
+      margin-bottom: 55px;
+    }
+
+    @media (min-width: $tablet) {
+      &:after {
+        content: '';
+        background: url("../../assets/img/blush.svg");
+        position: absolute;
+        left: 0;
+        bottom: -10px;
+        width: 145px;
+        height: 55px;
+      }
+    }
+  }
+
+  &-content {
+    @media (min-width: $tablet) {
+      max-width: 70%;
+    }
+    @media (min-width: $laptop) {
+      max-width: 560px;
+    }
+
+    .button {
+      margin-bottom: 30px;
+      margin-right: 20px;
+
+      @media (min-width: $laptop) {
+        margin-bottom: 40px;
+        margin-right: 50px;
+        border-radius: 10px;
+
+        &:nth-child(3) {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+
+  &-illustration {
+    background: url("../../assets/img/space.svg") no-repeat;
+    background-size: contain;
+    flex-grow: 1;
+    background-position-x: center;
+    background-position-y: top;
+    height: 250px;
+    width: 100%;
+
+    @media (min-width: $tablet) {
+      height: auto;
+      width: auto;
+    }
+  }
+}

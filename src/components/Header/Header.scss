@@ -10,6 +10,7 @@ header {
   padding: 0 10px;
   background: $white;
   position: fixed;
+  z-index: 1000;
   transition: $easing;
   @media (min-width: $laptop) {
     padding: 0 50px;
