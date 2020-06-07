@@ -1,0 +1,24 @@
+@import "../../assets/all";
+
+footer {
+  background: $sky-blue;
+  display: flex;
+  justify-content: center;
+  padding: 5px 0;
+
+  .social-block {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &-item {
+      margin-right: 15px;
+      display: flex;
+      align-items: center;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}
