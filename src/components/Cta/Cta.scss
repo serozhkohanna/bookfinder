@@ -1,0 +1,78 @@
+@import "../../assets/all";
+
+.cta {
+  padding: 40px 0 60px;
+  border-top: 5px solid $yellow;
+  @media (min-width: $tablet) {
+    padding: 70px 0 100px;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    @media (min-width: $tablet) {
+      flex-direction: row;
+    }
+  }
+
+  &-title {
+    //max-width: 565px;
+    font-family: $Merriweather-Regular;
+    position: relative;
+    margin-bottom: 50px;
+
+    @media (min-width: $tablet) {
+      margin-bottom: 0;
+      max-width: 400px;
+
+      &:after {
+        content: '';
+        position: absolute;
+        background: url("../../assets/img/blush1.svg") no-repeat;
+        background-size: contain;
+        top: -20px;
+        z-index: -1;
+        height: 150px;
+        width: 100%;
+        right: 0;
+        background-position-x: center;
+        background-position-y: top;
+      }
+    }
+    @media (min-width: $laptop) {
+      max-width: 565px;
+    }
+  }
+
+  &-action {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    position: relative;
+
+    @media (min-width: $tablet) {
+      width: auto;
+      position: static;
+    }
+
+    &:before {
+      content: '';
+      position: absolute;
+      background: url("../../assets/img/curve1.svg") no-repeat center center;
+      background-size: contain;
+      height: 200px;
+      width: 250px;
+      top: -80px;
+      z-index: -1;
+
+      @media (min-width: $tablet) {
+        top: -10px;
+        height: 200px;
+        width: 340px;
+      }
+    }
+  }
+}

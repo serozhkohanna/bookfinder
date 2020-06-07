@@ -7,6 +7,10 @@ html, body {
   line-height: 1.5;
 }
 
+main {
+  width: 100%;
+}
+
 .page {
   display: flex;
   flex-direction: column;
@@ -28,6 +32,7 @@ html, body {
 .container {
   width: 100%;
   padding: 0 10px;
+  margin: 0 auto;
   @media (min-width: $tablet) {
     max-width: 720px;
     padding: 0 5px;
