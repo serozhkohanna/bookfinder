@@ -11,4 +11,5 @@ export interface SearchParams {
   intitle?: string;
   inauthor?: string;
   inpublisher?: string;
+  subject?: string[];
 }
