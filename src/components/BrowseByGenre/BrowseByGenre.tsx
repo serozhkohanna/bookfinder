@@ -1,13 +1,13 @@
 import React from 'react';
 import './BrowseByGenre.scss';
 import { GENRES } from "../../constants/genres";
-import GenreItem from '../../constants/interfaces';
+import { GenreItem } from '../../constants/interfaces';
 
 import GenreBtn from "../GenreBtn/GenreBtn";
 
 const BrowseByGenre = () => {
   const genreItem = GENRES.map((item: GenreItem) => {
-	return <GenreBtn btnText={item.genre} classes={'genre-browse'}/>
+	return <GenreBtn key={item.id} btnText={item.genre} classes={'genre-browse'}/>
   })
 
   return <section className='genres' id='genre-browse'>

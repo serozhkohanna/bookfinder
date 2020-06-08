@@ -1,16 +1,27 @@
 import React, { useState } from 'react';
+import { useHistory } from "react-router-dom";
+
 import './SearchKeywords.scss';
 
 import SearchIcon from '../../assets/icons/search.svg';
 import CloseIcon from '../../assets/icons/close.svg';
 
+import { setBooks } from "../../actions/actions";
+import { connect } from 'react-redux';
+
+import { SearchParams } from "../../constants/interfaces";
+import { SEARCH_PAGE } from "../../constants/routes";
+
 interface Props {
   className: string;
+  setBooks: any;
 }
 
-const SearchKeywords = ({className}: Props, searchInput: any) => {
+const SearchKeywords = ({className, setBooks}: Props, searchInput: any) => {
   const [searchValue, setValue] = useState('');
   const [isFocus, setFocus] = useState(false);
+
+  let history = useHistory();
 
   const handleSearchChange = (e: any) => {
 	setValue(e.target.value);
@@ -24,25 +35,38 @@ const SearchKeywords = ({className}: Props, searchInput: any) => {
 	}
   }
 
-  const handleCloseClick = () => {
+  const handleSearchSubmit = (e) => {
+	e.preventDefault();
+
+	let params: SearchParams = {};
+	params.intitle = searchInput.value;
+
+	setBooks(params);
 	setValue('');
+	setFocus(false);
+
+	history.push(SEARCH_PAGE);
   }
 
   return <div className={`search ${className}`}>
 	<div className={`search-component ${isFocus && 'active'}`} onClick={handleSearchComponentClick}>
-	  <div className="search-input-wrapper">
+	  <form className="search-input-wrapper" onSubmit={handleSearchSubmit}>
 		<input ref={(input) => searchInput = input} value={searchValue} onChange={handleSearchChange}
-			   className='search-input' placeholder='Search for keywords'
+			   className='search-input' placeholder='Enter keywords'
 			   type="text"/>
-	  </div>
+	  </form>
 	  <div className="search-icon">
 		<img src={SearchIcon} alt="search-icon"/>
 	  </div>
-	  <div className="close-icon" onClick={handleCloseClick}>
+	  <div className="close-icon">
 		<img src={CloseIcon} alt="close-icon"/>
 	  </div>
 	</div>
   </div>
 }
 
-export default SearchKeywords;
+const mapStateToDispatch = {
+  setBooks
+}
+
+export default connect(null, mapStateToDispatch)(SearchKeywords);
