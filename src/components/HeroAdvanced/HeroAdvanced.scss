@@ -1,0 +1,28 @@
+@import "../../assets/all";
+
+.hero-advanced {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 60px 0 20px;
+  margin-bottom: 80px;
+
+  &-title {
+    width: 100%;
+    margin-bottom: 30px;
+    font-family: $Merriweather-Regular;
+    font-weight: 300;
+  }
+
+  .advanced-form {
+    width: 50%;
+  }
+
+  &-illustration {
+    width: 400px;
+    height: 350px;
+    background: url("../../assets/img/search-dog.svg") no-repeat;
+    background-size: contain;
+    background-position-y: top;
+    background-position-x: center;
+  }
+}
