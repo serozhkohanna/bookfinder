@@ -2,8 +2,8 @@
 
 .advanced-form {
   display: flex;
-  padding-top: 60px;
   flex-direction: column;
+  padding-top: 60px;
 
   .form-wrapper {
     width: 100%;
@@ -26,25 +26,51 @@
         + label {
           width: 190px;
           border-top: 3px solid $yellow;
+          font-family: $WorkSans-Regular;
+          padding: 5px;
+          font-size: 12px;
 
           > span {
             color: $deep-blue;
             letter-spacing: $ls-small;
           }
         }
+      }
 
-        input,
-        span,
-        label,
-        select {
-          font-family: $WorkSans-Regular;
-          padding: 5px;
-          font-size: 12px;
+      input,
+      span,
+      select {
+        font-family: $WorkSans-Regular;
+        padding: 5px;
+        font-size: 14px;
+      }
+    }
+
+    .btn-wrapper {
+      display: flex;
+      height: 31px;
+
+      .link-bg {
+        width: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 16px;
+        cursor: pointer;
+        font-family: $WorkSans-Semibold;
+
+        &:last-child {
+          margin-right: 0;
         }
       }
 
-      .btn-wrapper {
-        display: flex;
+      .checkbox {
+        align-self: center;
+        margin-right: 7px;
+
+        ~ p {
+          align-self: center;
+        }
       }
     }
 
