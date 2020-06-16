@@ -37,3 +37,16 @@
     box-shadow: none;
   }
 }
+
+.label {
+  color: $light-blue;
+  font-size: 12px;
+  letter-spacing: $ls-small;
+  font-family: $WorkSans-Semibold;
+  margin-bottom: 10px;
+}
+
+.select {
+  width: 150px;
+  border-bottom: 3px solid $yellow;
+}
