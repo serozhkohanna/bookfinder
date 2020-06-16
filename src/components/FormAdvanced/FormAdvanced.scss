@@ -3,6 +3,7 @@
 .advanced-form {
   display: flex;
   padding-top: 60px;
+  flex-direction: column;
 
   .form-wrapper {
     width: 100%;
@@ -12,6 +13,12 @@
     &-item {
       display: flex;
       flex-direction: column;
+
+      .select {
+        font-family: $WorkSans-Regular;
+        padding: 5px;
+        font-size: 14px;
+      }
 
       .input-animated {
         width: 190px;
@@ -25,20 +32,35 @@
             letter-spacing: $ls-small;
           }
         }
+
+        input,
+        span,
+        label,
+        select {
+          font-family: $WorkSans-Regular;
+          padding: 5px;
+          font-size: 12px;
+        }
       }
 
-      input,
-      span,
-      label {
-        font-family: $WorkSans-Regular;
-        padding: 5px;
-        font-size: 12px;
+      .btn-wrapper {
+        display: flex;
       }
     }
 
     &.double {
       .form-wrapper-item {
         margin-right: 90px;
+
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+
+    &.triple {
+      .form-wrapper-item {
+        margin-right: 58px;
 
         &:last-child {
           margin-right: 0;

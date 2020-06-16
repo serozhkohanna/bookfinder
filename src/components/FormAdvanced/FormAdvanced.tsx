@@ -19,6 +19,36 @@ const FormAdvanced = () => {
 		</label>
 	  </div>
 	</div>
+
+	<div className="form-wrapper triple">
+	  <div className="form-wrapper-item">
+		<label className='label' htmlFor="book-category">
+		  <span>Book Title</span>
+		</label>
+		<select className='select' name="name" id="book-category">
+		  <option value="fiction">Fiction</option>
+		  <option value="drama">Drama</option>
+		</select>
+	  </div>
+	  <div className="form-wrapper-item">
+		<label className='label' htmlFor="book-category">
+		  <span>Payment</span>
+		</label>
+		<div className="btn-wrapper">
+		  <a className="link-bg">Free</a>
+		  <a className="link-bg">Paid</a>
+		</div>
+	  </div>
+	  <div className="form-wrapper-item">
+		<label className='label' htmlFor="book-download">
+		  <span>Download</span>
+		</label>
+		<div className="btn-wrapper">
+		  <input type="checkbox"/>
+		  <p>Epub</p>
+		</div>
+	  </div>
+	</div>
   </form>
 }
 
