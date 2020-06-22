@@ -60,6 +60,10 @@
         cursor: pointer;
         font-family: $WorkSans-Semibold;
 
+        &.active {
+          background-position-y: 100%;
+        }
+
         &.is-small {
           width: 35px;
         }

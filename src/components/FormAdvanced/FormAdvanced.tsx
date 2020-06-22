@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './FormAdvanced.scss';
-import { setBooks } from "../../actions/actions";
+import { setBooks, setAdvancedRequest } from "../../actions/actions";
 import { connect } from 'react-redux';
 import { SearchParams } from "../../constants/interfaces";
 
@@ -8,21 +8,42 @@ import { SearchParams } from "../../constants/interfaces";
 interface searchParams {
   searchTitle?: (string | any);
   searchAuthor?: (string | any);
+  selectedCategory?: (string | any);
+  downloadType?: (boolean | any);
+  selectedLanguage?: (string | any);
 }
 
 interface Props {
   setBooks: any;
+  setAdvancedRequest: any;
 }
 
-const FormAdvanced = ({setBooks}: Props, {searchTitle, searchAuthor}: searchParams) => {
+const FormAdvanced = ({setBooks, setAdvancedRequest}: Props, {searchTitle, searchAuthor, downloadType, selectedCategory, selectedLanguage}: searchParams) => {
+  const [filter, setFilter] = useState('');
+  const [maxResults, setMaxResults] = useState(10);
+
   const handleSearchSubmit = (e) => {
 	e.preventDefault();
 
 	let params: SearchParams = {};
 	params.intitle = searchTitle.value;
 	params.inauthor = searchAuthor.value;
+	params.subject = selectedCategory.value.split(' ');
+	params.filter = filter;
+	params.download = downloadType.checked;
+	params.maxResults = maxResults;
+	params.langRestrict = selectedLanguage.value;
 
 	setBooks(params);
+	setAdvancedRequest(params);
+  }
+
+  const handlePayment = (type) => {
+	setFilter(type);
+  }
+
+  const handleMaxResult = (num) => {
+	setMaxResults(num);
   }
 
   return <form className='advanced-form' onSubmit={handleSearchSubmit}>
@@ -30,7 +51,8 @@ const FormAdvanced = ({setBooks}: Props, {searchTitle, searchAuthor}: searchPara
 	  <div className="form-wrapper-item">
 		<input type="text" name="name" className="input-animated" id="book-title"
 			   ref={(input) => searchTitle = input}
-			   required autoComplete="off"/>
+			   required
+			   autoComplete="off"/>
 		<label htmlFor="book-title">
 		  <span>Book Title</span>
 		</label>
@@ -38,7 +60,8 @@ const FormAdvanced = ({setBooks}: Props, {searchTitle, searchAuthor}: searchPara
 	  <div className="form-wrapper-item">
 		<input type="text" name="name" className="input-animated" id="book-author"
 			   ref={(input) => searchAuthor = input}
-			   required autoComplete="off"/>
+			   required
+		/>
 		<label htmlFor="book-author">
 		  <span>Book Author</span>
 		</label>
@@ -50,7 +73,9 @@ const FormAdvanced = ({setBooks}: Props, {searchTitle, searchAuthor}: searchPara
 		<label className='label' htmlFor="book-category">
 		  Book Category
 		</label>
-		<select className='select' name="name" id="book-category">
+		<select className='select' name="name" id="book-category"
+				ref={(category) => selectedCategory = category}>
+		  <option value="">None</option>
 		  <option value="fiction">Fiction</option>
 		  <option value="drama">Drama</option>
 		</select>
@@ -60,8 +85,10 @@ const FormAdvanced = ({setBooks}: Props, {searchTitle, searchAuthor}: searchPara
 		  Payment
 		</label>
 		<div className="btn-wrapper">
-		  <a className="link-bg">Free</a>
-		  <a className="link-bg">Paid</a>
+		  <a className={`link-bg ${filter === 'free-ebooks' ? 'active' : ''}`}
+			 onClick={() => handlePayment('free-ebooks')}>Free</a>
+		  <a className={`link-bg ${filter === 'paid-ebooks' ? 'active' : ''}`}
+			 onClick={() => handlePayment('paid-ebooks')}>Paid</a>
 		</div>
 	  </div>
 	  <div className="form-wrapper-item">
@@ -69,7 +96,7 @@ const FormAdvanced = ({setBooks}: Props, {searchTitle, searchAuthor}: searchPara
 		  Download
 		</label>
 		<div className="btn-wrapper">
-		  <input className='checkbox' type="checkbox"/>
+		  <input className='checkbox' type="checkbox" ref={(checkboxValue => downloadType = checkboxValue)}/>
 		  <p>Epub</p>
 		</div>
 	  </div>
@@ -80,9 +107,10 @@ const FormAdvanced = ({setBooks}: Props, {searchTitle, searchAuthor}: searchPara
 		<label className='label' htmlFor="book-language">
 		  Language
 		</label>
-		<select className='select' name="name" id="book-language">
-		  <option value="fiction">English</option>
-		  <option value="drama">German</option>
+		<select className='select' name="name" id="book-language"
+			ref={(langValue) => selectedLanguage = langValue} >
+		  <option value="en">English</option>
+		  <option value="fr">French</option>
 		</select>
 	  </div>
 	  <div className="form-wrapper-item">
@@ -90,9 +118,12 @@ const FormAdvanced = ({setBooks}: Props, {searchTitle, searchAuthor}: searchPara
 		  Return results
 		</label>
 		<div className="btn-wrapper">
-		  <a className="link-bg is-small">10</a>
-		  <a className="link-bg is-small">30</a>
-		  <a className="link-bg is-small">50</a>
+		  <a className={`link-bg is-small ${maxResults === 10 ? 'active' : ''}`}
+			 onClick={() => handleMaxResult(10)}>10</a>
+		  <a className={`link-bg is-small ${maxResults === 20 ? 'active' : ''}`}
+			 onClick={() => handleMaxResult(20)}>20</a>
+		  <a className={`link-bg is-small ${maxResults === 40 ? 'active' : ''}`}
+			 onClick={() => handleMaxResult(40)}>40</a>
 		</div>
 	  </div>
 	</div>
@@ -101,7 +132,8 @@ const FormAdvanced = ({setBooks}: Props, {searchTitle, searchAuthor}: searchPara
 }
 
 const mapDispatchToProps = {
-  setBooks
+  setBooks,
+  setAdvancedRequest
 }
 
 export default connect(null, mapDispatchToProps)(FormAdvanced);

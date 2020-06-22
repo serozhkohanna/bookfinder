@@ -10,16 +10,9 @@ export interface ApiResponse {
 export interface SearchParams {
   intitle?: string;
   inauthor?: string;
-  inpublisher?: string;
   subject?: string[];
-}
-
-export interface AdvancedRequest {
-  bookTitle: string;
-  bookAuthor: string;
-  category?: string;
-  payment?: string;
+  filter?: string;
   download?: string;
-  language?: string;
-  pagination?: string;
+  maxResults?: number;
+  langRestrict?: string;
 }
