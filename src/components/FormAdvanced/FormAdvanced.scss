@@ -59,6 +59,10 @@
         cursor: pointer;
         font-family: $WorkSans-Semibold;
 
+        &.is-small {
+          width: 35px;
+        }
+
         &:last-child {
           margin-right: 0;
         }
@@ -93,5 +97,9 @@
         }
       }
     }
+  }
+
+  .button {
+    margin: 30px auto 0;
   }
 }

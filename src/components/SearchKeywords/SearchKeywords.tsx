@@ -65,8 +65,8 @@ const SearchKeywords = ({className, setBooks}: Props, searchInput: any) => {
   </div>
 }
 
-const mapStateToDispatch = {
+const mapDispatchToProps = {
   setBooks
 }
 
-export default connect(null, mapStateToDispatch)(SearchKeywords);
+export default connect(null, mapDispatchToProps)(SearchKeywords);

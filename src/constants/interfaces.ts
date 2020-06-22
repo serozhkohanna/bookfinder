@@ -13,3 +13,13 @@ export interface SearchParams {
   inpublisher?: string;
   subject?: string[];
 }
+
+export interface AdvancedRequest {
+  bookTitle: string;
+  bookAuthor: string;
+  category?: string;
+  payment?: string;
+  download?: string;
+  language?: string;
+  pagination?: string;
+}
