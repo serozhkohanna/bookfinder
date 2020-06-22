@@ -1,8 +1,11 @@
 import { combineReducers } from "redux";
+
 import apiResponse from "./apiResponse";
+import advancedRequest from "./advancedRequest";
 
 const reducer = combineReducers({
-  apiResponse
+  apiResponse,
+  advancedRequest
 })
 
 export default reducer;

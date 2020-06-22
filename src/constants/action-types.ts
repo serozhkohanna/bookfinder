@@ -1,1 +1,2 @@
-export const SET_BOOKS = 'SET_BOOKS';
+export const SET_BOOKS = 'SET_BOOKS',
+  SET_ADVANCED_REQUEST = 'SET_ADVANCED_REQUEST';
