@@ -1,11 +1,14 @@
 import { SET_ADVANCED_REQUEST } from "../constants/action-types";
-import { AdvancedRequest } from "../constants/interfaces";
+import { SearchParams } from "../constants/interfaces";
 
-const initialState: AdvancedRequest = {
-  bookTitle: '',
-  bookAuthor: ''
-}
+const initialState: SearchParams = {}
 
-export default function advancedRequests(state = initialState, action) {
+export default function advancedRequest(state = initialState, action) {
+  switch (action.type) {
+	case SET_ADVANCED_REQUEST:
+	  return {
+		...action.payload
+	  }
+  }
   return state;
 }
