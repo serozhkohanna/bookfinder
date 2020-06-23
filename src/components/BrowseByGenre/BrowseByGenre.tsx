@@ -26,6 +26,7 @@ const BrowseByGenre = ({setBooks}) => {
 
   const genreItem = GENRES.map((item: GenreItem) => {
 	return <GenreBtn setData={getDataFromChild} key={item.id} btnText={item.genre}
+					 value={item.value}
 					 classes={'genre-browse'}/>
   })
 

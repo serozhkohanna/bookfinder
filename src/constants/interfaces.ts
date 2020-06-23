@@ -1,6 +1,7 @@
 export interface GenreItem {
   id: number,
   genre: string;
+  value: string;
 }
 
 export interface ApiResponse {

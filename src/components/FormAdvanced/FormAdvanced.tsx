@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import './FormAdvanced.scss';
 import { setBooks, setAdvancedRequest } from "../../actions/actions";
 import { connect } from 'react-redux';
-import { SearchParams } from "../../constants/interfaces";
-
+import { SearchParams, GenreItem } from "../../constants/interfaces";
+import { GENRES } from "../../constants/genres";
 
 interface searchParams {
   searchTitle?: (string | any);
@@ -28,7 +28,7 @@ const FormAdvanced = ({setBooks, setAdvancedRequest}: Props, {searchTitle, searc
 	let params: SearchParams = {};
 	params.intitle = searchTitle.value;
 	params.inauthor = searchAuthor.value;
-	params.subject = selectedCategory.value.split(' ');
+	params.subject = selectedCategory.value;
 	params.filter = filter;
 	params.download = downloadType.checked;
 	params.maxResults = maxResults;
@@ -75,9 +75,12 @@ const FormAdvanced = ({setBooks, setAdvancedRequest}: Props, {searchTitle, searc
 		</label>
 		<select className='select' name="name" id="book-category"
 				ref={(category) => selectedCategory = category}>
-		  <option value="">None</option>
-		  <option value="fiction">Fiction</option>
-		  <option value="drama">Drama</option>
+		  <option value="">All Categories</option>
+		  {GENRES.map((item: GenreItem) => {
+			return (
+			  <option key={item.id} value={item.value}>{item.genre}</option>
+			)
+		  })}
 		</select>
 	  </div>
 	  <div className="form-wrapper-item">
@@ -108,9 +111,11 @@ const FormAdvanced = ({setBooks, setAdvancedRequest}: Props, {searchTitle, searc
 		  Language
 		</label>
 		<select className='select' name="name" id="book-language"
-			ref={(langValue) => selectedLanguage = langValue} >
+				ref={(langValue) => selectedLanguage = langValue}>
+		  {/*<option value="en">Any langua</option>*/}
 		  <option value="en">English</option>
 		  <option value="fr">French</option>
+		  <option value="de">German</option>
 		</select>
 	  </div>
 	  <div className="form-wrapper-item">

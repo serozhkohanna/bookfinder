@@ -6,7 +6,15 @@ import axios from 'axios';
 export const setBooks = (params) => {
   let {intitle, inauthor, subject, filter, download, maxResults, langRestrict} = params;
 
-  let url = `${apiURL}volumes?q=${intitle + '+inauthor:' + inauthor + '+subject:' + subject}${filter && `&filter=${filter}`}&${download && 'download=epub'}&${maxResults && `maxResults=${maxResults}`}&${langRestrict && `langRestrict=${langRestrict}`}&key=${apiKey}`;
+  let titleParam = intitle ? `intitle:${intitle}` : '';
+  let authorParam = inauthor ? `+inauthor:${inauthor}` : '';
+  let subjectParams = subject ? `+subject:${subject}` : '';
+  let filterParam = filter ? `&filter=${filter}` : '';
+  let downloadParam = download ? `&download=epub` : '';
+  let languageParam = langRestrict ? `&langRestrict=${langRestrict}` : '';
+  let mapResultParam = maxResults ? `&maxResults=${maxResults}` : '&maxResults=10';
+
+  let url = `${apiURL}volumes?q=${titleParam}${authorParam}${subjectParams}${filterParam}${downloadParam}${languageParam}${mapResultParam}&key=${apiKey}`;
 
   return dispatch => {
 	axios.get(url)
