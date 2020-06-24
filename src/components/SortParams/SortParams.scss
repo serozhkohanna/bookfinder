@@ -1,0 +1,32 @@
+@import "src/assets/colors";
+@import "src/assets/variables";
+
+.sort-params {
+  display: flex;
+
+  .sort-button {
+    display: flex;
+    margin-right: 40px;
+    align-items: center;
+    cursor: pointer;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    .sort-text {
+      font-size: 14px;
+      font-family: $WorkSans-Semibold;
+      color: $light-gray;
+    }
+
+    .sort-icon {
+      margin-right: 3px;
+
+      path {
+        fill: $light-gray;
+        fill-opacity: 1;
+      }
+    }
+  }
+}

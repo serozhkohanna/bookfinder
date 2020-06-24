@@ -30,9 +30,11 @@ const FormAdvanced = ({setBooks, setAdvancedRequest}: Props, {searchTitle, searc
 	params.inauthor = searchAuthor.value;
 	params.subject = selectedCategory.value;
 	params.filter = filter;
-	params.download = downloadType.checked;
+	params.download = downloadType.checked && 'epub';
 	params.maxResults = maxResults;
 	params.langRestrict = selectedLanguage.value;
+	params.startIndex = 1;
+	// params.orderBy = 'relevance';
 
 	setBooks(params);
 	setAdvancedRequest(params);
@@ -113,6 +115,7 @@ const FormAdvanced = ({setBooks, setAdvancedRequest}: Props, {searchTitle, searc
 		<select className='select' name="name" id="book-language"
 				ref={(langValue) => selectedLanguage = langValue}>
 		  {/*<option value="en">Any langua</option>*/}
+		  <option value="">Any language</option>
 		  <option value="en">English</option>
 		  <option value="fr">French</option>
 		  <option value="de">German</option>

@@ -9,10 +9,10 @@ import { connect } from 'react-redux';
 
 import GenreBtn from "../GenreBtn/GenreBtn";
 
-import { setBooks } from "../../actions/actions";
+import { setBooks, setAdvancedRequest } from "../../actions/actions";
 import { SEARCH_PAGE } from "../../constants/routes";
 
-const BrowseByGenre = ({setBooks}) => {
+const BrowseByGenre = ({setBooks, setAdvancedRequest}) => {
   let history = useHistory();
 
   const getDataFromChild = (param) => {
@@ -20,6 +20,7 @@ const BrowseByGenre = ({setBooks}) => {
 	params.subject = param.split(' ');
 
 	setBooks(params);
+	setAdvancedRequest(params);
 
 	history.push(SEARCH_PAGE);
   }
@@ -41,7 +42,8 @@ const BrowseByGenre = ({setBooks}) => {
 }
 
 const mapDispatchToProps = {
-  setBooks
+  setBooks,
+  setAdvancedRequest
 }
 
 export default connect(null, mapDispatchToProps)(BrowseByGenre);

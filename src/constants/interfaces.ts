@@ -16,4 +16,6 @@ export interface SearchParams {
   download?: string;
   maxResults?: number;
   langRestrict?: string;
+  startIndex?: number;
+  orderBy?: string;
 }

@@ -11,7 +11,7 @@ export default function apiResponse(state: ApiResponse = initialState, action) {
 	case SET_BOOKS:
 	  return {
 		...state,
-		apiResponse: action.payload
+		apiResponse: {...action.payload}
 	  }
   }
   return state;
