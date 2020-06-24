@@ -3,13 +3,16 @@ import './BookRequest.scss';
 import { connect } from 'react-redux';
 
 const BookRequest = ({bookRequest}) => {
-  const {intitle, inauthor, subject} = bookRequest;
+  const {intitle, inauthor, subject, filter} = bookRequest;
 
   const renderRequestInfo = () => {
 	if (Object.values(bookRequest).length) {
 	  return (
 		<h4 className='book-request-title'>
-		  <span>{inauthor}</span> <span><b><i>{intitle}</i></b></span> {subject}
+		  {inauthor && <span className='name'>{inauthor}</span>}
+		  {intitle && <span className='name'><b><i>{intitle}</i></b></span>}
+		  {subject && <span>{subject}</span>}
+		  {filter && <span>{filter}</span>}
 		</h4>
 	  )
 	}

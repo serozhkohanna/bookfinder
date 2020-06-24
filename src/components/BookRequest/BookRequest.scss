@@ -2,18 +2,27 @@
 @import "src/assets/variables";
 
 .book-request {
-  max-width: 600px;
+  max-width: 550px;
   margin: 0 auto 60px;
   text-align: center;
 
   &-title {
     font-family: $Merriweather-Regular;
-    text-transform: capitalize;
 
     span {
+      &.name {
+        text-transform: capitalize;
+      }
+
       &:after {
         content: '&';
-        margin-left: 10px;
+        margin: 0 10px;
+      }
+
+      &:last-child {
+        &:after {
+          content: none;
+        }
       }
     }
   }
