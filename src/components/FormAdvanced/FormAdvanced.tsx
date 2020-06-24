@@ -34,6 +34,7 @@ const FormAdvanced = ({setBooks, setAdvancedRequest}: Props, {searchTitle, searc
 	params.maxResults = maxResults;
 	params.langRestrict = selectedLanguage.value;
 	params.startIndex = 1;
+	// params.orderBy = 'relevance';
 
 	setBooks(params);
 	setAdvancedRequest(params);

@@ -3,11 +3,21 @@ import './Content.scss';
 import { connect } from 'react-redux';
 import { ApiResponse } from "../../constants/interfaces";
 
-const Content = ({booksList}) => {
-  console.log(booksList.apiResponse);
+import SortParams from "../SortParams/SortParams";
 
-  return <section>
-	content
+const Content = ({booksList}) => {
+  const bookList = booksList.apiResponse;
+
+  return <section className='content'>
+	<div className="content-header">
+	  <div className="books-count">
+		<p><span>{bookList.totalItems}</span> items</p>
+	  </div>
+	  <SortParams/>
+	</div>
+	<div className="content-body">
+	  body
+	</div>
   </section>
 }
 

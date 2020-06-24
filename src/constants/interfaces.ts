@@ -17,4 +17,5 @@ export interface SearchParams {
   maxResults?: number;
   langRestrict?: string;
   startIndex?: number;
+  orderBy?: string;
 }

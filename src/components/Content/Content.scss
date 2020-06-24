@@ -1,0 +1,19 @@
+@import "src/assets/colors";
+@import "src/assets/variables";
+
+.content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  &-header {
+    display: flex;
+    justify-content: space-between;
+
+    .books-count {
+      font-size: 14px;
+      font-family: $WorkSans-Semibold;
+      color: $light-gray;
+    }
+  }
+}
