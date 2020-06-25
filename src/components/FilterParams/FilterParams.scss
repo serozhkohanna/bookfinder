@@ -1,0 +1,36 @@
+@import "src/assets/colors";
+@import "src/assets/variables";
+
+.filter-params {
+  display: flex;
+  flex-direction: column;
+  max-width: 180px;
+
+  &-item {
+    width: 180px;
+    background: $sky-blue;
+    color: $deep-blue;
+    border-radius: $border-radius-base;
+    padding: 15px 20px 20px;
+
+    .filter-header {
+      margin-bottom: 25px;
+      font-family: $WorkSans-Medium;
+      font-size: 14px;
+      letter-spacing: $ls-small;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      .chevron-icon {
+        width: 8px;
+
+        path {
+          opacity: .7;
+          fill: $deep-blue;
+        }
+      }
+    }
+  }
+}
