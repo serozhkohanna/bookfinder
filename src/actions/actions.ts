@@ -4,7 +4,7 @@ import { apiKey, apiURL } from "../constants/googleApi";
 import axios from 'axios';
 
 export const setBooks = (params) => {
-  let {intitle, inauthor, subject, filter, download, maxResults, langRestrict, startIndex, orderBy} = params;
+  let {intitle, inauthor, subject, filter, download, maxResults, langRestrict, startIndex, orderBy, keywords} = params;
 
   let titleParam = intitle ? `intitle:${intitle}` : '';
   let authorParam = inauthor ? `+inauthor:${inauthor}` : '';
@@ -12,8 +12,9 @@ export const setBooks = (params) => {
   let startIndexParam = startIndex ? startIndex : '1';
   let orderByParam = orderBy ? `&orderBy=${orderBy}` : '';
   let maxResultParam = maxResults ? `&maxResults=${maxResults}` : '&maxResults=10';
+  let keywordsParams = keywords ? keywords : '';
 
-  let url = `${apiURL}volumes?q=${titleParam}${authorParam}${subjectParams}${maxResultParam}${orderByParam}&startIndex=${startIndexParam}&key=${apiKey}`;
+  let url = `${apiURL}volumes?q=${keywordsParams}${titleParam}${authorParam}${subjectParams}${maxResultParam}${orderByParam}&startIndex=${startIndexParam}&key=${apiKey}`;
 
   return dispatch => {
 	axios.get(url)

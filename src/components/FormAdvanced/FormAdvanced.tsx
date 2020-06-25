@@ -34,7 +34,6 @@ const FormAdvanced = ({setBooks, setAdvancedRequest}: Props, {searchTitle, searc
 	params.maxResults = maxResults;
 	params.langRestrict = selectedLanguage.value;
 	params.startIndex = 1;
-	// params.orderBy = 'relevance';
 
 	setBooks(params);
 	setAdvancedRequest(params);
@@ -63,6 +62,7 @@ const FormAdvanced = ({setBooks, setAdvancedRequest}: Props, {searchTitle, searc
 		<input type="text" name="name" className="input-animated" id="book-author"
 			   ref={(input) => searchAuthor = input}
 			   required
+			   autoComplete="off"
 		/>
 		<label htmlFor="book-author">
 		  <span>Book Author</span>

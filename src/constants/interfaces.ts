@@ -18,4 +18,5 @@ export interface SearchParams {
   langRestrict?: string;
   startIndex?: number;
   orderBy?: string;
+  keywords?: string[];
 }

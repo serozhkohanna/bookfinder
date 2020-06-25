@@ -6,7 +6,7 @@ import './SearchKeywords.scss';
 import SearchIcon from '../../assets/icons/search.svg';
 import CloseIcon from '../../assets/icons/close.svg';
 
-import { setBooks } from "../../actions/actions";
+import { setBooks, setAdvancedRequest } from "../../actions/actions";
 import { connect } from 'react-redux';
 
 import { SearchParams } from "../../constants/interfaces";
@@ -15,9 +15,10 @@ import { SEARCH_PAGE } from "../../constants/routes";
 interface Props {
   className: string;
   setBooks: any;
+  setAdvancedRequest: any;
 }
 
-const SearchKeywords = ({className, setBooks}: Props, searchInput: any) => {
+const SearchKeywords = ({className, setBooks, setAdvancedRequest}: Props, searchInput: any) => {
   const [searchValue, setValue] = useState('');
   const [isFocus, setFocus] = useState(false);
 
@@ -39,9 +40,12 @@ const SearchKeywords = ({className, setBooks}: Props, searchInput: any) => {
 	e.preventDefault();
 
 	let params: SearchParams = {};
-	params.intitle = searchInput.value;
+	let keywords = searchInput.value;
+	params.keywords = keywords;
 
 	setBooks(params);
+	setAdvancedRequest(params);
+
 	setValue('');
 	setFocus(false);
 
@@ -66,7 +70,8 @@ const SearchKeywords = ({className, setBooks}: Props, searchInput: any) => {
 }
 
 const mapDispatchToProps = {
-  setBooks
+  setBooks,
+  setAdvancedRequest
 }
 
 export default connect(null, mapDispatchToProps)(SearchKeywords);

@@ -7,7 +7,6 @@ export default function advancedRequest(state = initialState, action) {
   switch (action.type) {
 	case SET_ADVANCED_REQUEST:
 	  return {
-		...state,
 		...action.payload
 	  }
   }
