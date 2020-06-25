@@ -3,7 +3,7 @@ import './BookRequest.scss';
 import { connect } from 'react-redux';
 
 const BookRequest = ({bookRequest}) => {
-  const {intitle, inauthor, subject, filter} = bookRequest;
+  const {intitle, inauthor, subject, filter, keywords} = bookRequest;
 
   const renderRequestInfo = () => {
 	if (Object.values(bookRequest).length) {
@@ -13,6 +13,7 @@ const BookRequest = ({bookRequest}) => {
 		  {intitle && <span className='name'><b><i>{intitle}</i></b></span>}
 		  {subject && <span>{subject}</span>}
 		  {filter && <span>{filter}</span>}
+		  {keywords && keywords.map((keyword, i) => <span key={i}>{keyword}</span>)}
 		</h4>
 	  )
 	}
