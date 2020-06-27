@@ -1,10 +1,26 @@
 import React, { useState } from 'react';
 import './FilterParams.scss';
 import { filters } from "../../constants/filter-params";
+import { connect } from 'react-redux';
+import { setAdvancedRequest, setBooks } from "../../actions/actions";
 
-const FilterParams = () => {
+const FilterParams = ({params, setAdvancedRequest, setBooks}) => {
   const [isOpen, setAccordion] = useState(true);
+
+  const [options, setOptions] = useState({type: '', options: ['']})
   const handleCloseHeader = () => (e) => {
+  }
+
+  const handleParamChange = (e) => {
+	if (params.langRestrict?.includes(e.target.value)) {
+	  params.langRestrict = params.langRestrict.filter(item => {
+		return item !== e.target.value
+	  });
+	} else {
+	  params.langRestrict.push(e.target.value);
+	}
+
+	setAdvancedRequest(params);
   }
 
   return <aside className='filter-params'>
@@ -22,7 +38,14 @@ const FilterParams = () => {
 			  </svg>
 			</div>
 			<div className="filter-body">
-			  {item.options.map((option, id) => <p key={id}>{option}</p>)}
+			  {item.options.map((option, i) => {
+				return (
+				  <div key={i}>
+					<input onChange={handleParamChange} type="checkbox" value={option.param}/>
+					<label>{option.name}</label>
+				  </div>
+				)
+			  })}
 			</div>
 		  </div>
 		)
@@ -31,4 +54,15 @@ const FilterParams = () => {
   </aside>
 }
 
-export default FilterParams;
+const mapStateToProps = ({advancedRequest}) => {
+  return {
+	params: advancedRequest
+  }
+}
+
+const mapDispatchToProps = {
+  setAdvancedRequest,
+  setBooks
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(FilterParams);
