@@ -22,35 +22,35 @@ export const filters = [
 	type: 'Content',
 	options: [
 	  {
-		name: 'English',
-		param: 'en'
+		name: 'Books',
+		param: 'books'
 	  },
 	  {
-		name: 'German',
-		param: 'de'
+		name: 'Magazines',
+		param: 'magazines'
 	  },
 	  {
-		name: 'French',
-		param: 'fr'
+		name: 'All content',
+		param: 'all'
 	  }
 	]
   },
-  {
-	id: 3,
-	type: 'Formal',
-	options: [
-	  {
-		name: 'English',
-		param: 'en'
-	  },
-	  {
-		name: 'German',
-		param: 'de'
-	  },
-	  {
-		name: 'French',
-		param: 'fr'
-	  }
-	]
-  }
+  // {
+	// id: 3,
+	// type: 'Format',
+	// options: [
+	//   {
+	// 	name: 'English',
+	// 	param: 'en'
+	//   },
+	//   {
+	// 	name: 'German',
+	// 	param: 'de'
+	//   },
+	//   {
+	// 	name: 'French',
+	// 	param: 'fr'
+	//   }
+	// ]
+  // }
 ]

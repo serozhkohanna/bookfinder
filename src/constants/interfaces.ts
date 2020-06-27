@@ -19,4 +19,5 @@ export interface SearchParams {
   startIndex?: number;
   orderBy?: string;
   keywords?: string[];
+  printType?: string[];
 }

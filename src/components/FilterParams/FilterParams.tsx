@@ -7,20 +7,34 @@ import { setAdvancedRequest, setBooks } from "../../actions/actions";
 const FilterParams = ({params, setAdvancedRequest, setBooks}) => {
   const [isOpen, setAccordion] = useState(true);
 
-  const [options, setOptions] = useState({type: '', options: ['']})
   const handleCloseHeader = () => (e) => {
   }
 
-  const handleParamChange = (e) => {
-	if (params.langRestrict?.includes(e.target.value)) {
-	  params.langRestrict = params.langRestrict.filter(item => {
-		return item !== e.target.value
-	  });
-	} else {
-	  params.langRestrict.push(e.target.value);
+  const handleParamChange = (e, type) => {
+	switch (type) {
+	  case 'Languages':
+		if (params.langRestrict?.includes(e.target.value)) {
+		  params.langRestrict = params.langRestrict.filter(item => {
+			return item !== e.target.value
+		  });
+		} else {
+		  params.langRestrict = [e.target.value];
+		}
+		setAdvancedRequest(params);
+		setBooks(params);
+		break;
+	  case 'Content':
+		if (params.printType?.includes(e.target.value)) {
+		  params.printType = params.printType.filter(item => {
+			return item !== e.target.value
+		  });
+		} else {
+		  params.printType = [e.target.value];
+		}
+		setAdvancedRequest(params);
+		setBooks(params);
+		break;
 	}
-
-	setAdvancedRequest(params);
   }
 
   return <aside className='filter-params'>
@@ -41,7 +55,7 @@ const FilterParams = ({params, setAdvancedRequest, setBooks}) => {
 			  {item.options.map((option, i) => {
 				return (
 				  <div key={i}>
-					<input onChange={handleParamChange} type="checkbox" value={option.param}/>
+					<input name={item.type} onChange={(e) => handleParamChange(e, item.type)} type="radio" value={option.param}/>
 					<label>{option.name}</label>
 				  </div>
 				)
