@@ -1,10 +1,40 @@
 import React, { useState } from 'react';
 import './FilterParams.scss';
 import { filters } from "../../constants/filter-params";
+import { connect } from 'react-redux';
+import { setAdvancedRequest, setBooks } from "../../actions/actions";
 
-const FilterParams = () => {
+const FilterParams = ({params, setAdvancedRequest, setBooks}) => {
   const [isOpen, setAccordion] = useState(true);
+
   const handleCloseHeader = () => (e) => {
+  }
+
+  const handleParamChange = (e, type) => {
+	switch (type) {
+	  case 'Languages':
+		if (params.langRestrict?.includes(e.target.value)) {
+		  params.langRestrict = params.langRestrict.filter(item => {
+			return item !== e.target.value
+		  });
+		} else {
+		  params.langRestrict = [e.target.value];
+		}
+		setAdvancedRequest(params);
+		setBooks(params);
+		break;
+	  case 'Content':
+		if (params.printType?.includes(e.target.value)) {
+		  params.printType = params.printType.filter(item => {
+			return item !== e.target.value
+		  });
+		} else {
+		  params.printType = [e.target.value];
+		}
+		setAdvancedRequest(params);
+		setBooks(params);
+		break;
+	}
   }
 
   return <aside className='filter-params'>
@@ -22,7 +52,14 @@ const FilterParams = () => {
 			  </svg>
 			</div>
 			<div className="filter-body">
-			  {item.options.map((option, id) => <p key={id}>{option}</p>)}
+			  {item.options.map((option, i) => {
+				return (
+				  <div key={i}>
+					<input name={item.type} onChange={(e) => handleParamChange(e, item.type)} type="radio" value={option.param}/>
+					<label>{option.name}</label>
+				  </div>
+				)
+			  })}
 			</div>
 		  </div>
 		)
@@ -31,4 +68,15 @@ const FilterParams = () => {
   </aside>
 }
 
-export default FilterParams;
+const mapStateToProps = ({advancedRequest}) => {
+  return {
+	params: advancedRequest
+  }
+}
+
+const mapDispatchToProps = {
+  setAdvancedRequest,
+  setBooks
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(FilterParams);

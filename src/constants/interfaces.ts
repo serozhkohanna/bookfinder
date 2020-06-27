@@ -15,8 +15,9 @@ export interface SearchParams {
   filter?: string;
   download?: string;
   maxResults?: number;
-  langRestrict?: string;
+  langRestrict?: string[];
   startIndex?: number;
   orderBy?: string;
   keywords?: string[];
+  printType?: string[];
 }
