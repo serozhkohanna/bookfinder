@@ -9,7 +9,6 @@ import BookItemList from "../BookItemList/BookItemList";
 
 const Content = ({booksList}) => {
   const bookList = booksList.apiResponse;
-  console.log(bookList, 'bookList');
 
   if (booksList.apiResponse.totalItems > 0) {
 	return <section className='content'>
