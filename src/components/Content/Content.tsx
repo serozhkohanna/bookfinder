@@ -10,28 +10,28 @@ import BookItemList from "../BookItemList/BookItemList";
 const Content = ({booksList}) => {
   const bookList = booksList.apiResponse;
 
-  if (booksList.apiResponse.totalItems > 0) {
-	return <section className='content'>
-	  <div className="content-header">
-		<div className="books-count">
-		  <p><span>{bookList.totalItems}</span> items</p>
-		</div>
-		<SortParams/>
-	  </div>
+  return (
+	<section className='content'>
+	  {booksList.apiResponse.totalItems >= 0 &&
+      <div className="content-header">
+          <div className="books-count">
+              <p><span>{bookList.totalItems}</span> items</p>
+          </div>
+          <SortParams/>
+      </div>
+	  }
 	  <div className="content-body">
-		<FilterParams/>
-		<div className="books-list">
+		{booksList.apiResponse.totalItems >= 0 && <FilterParams/>}
+		{booksList.apiResponse.totalItems > 0 && <div className="books-list">
 		  {booksList.apiResponse.items?.map((item, i) => {
 			return (
 			  <BookItemList key={i} bookItem={item}/>
 			)
 		  })}
-		</div>
+        </div>}
 	  </div>
 	</section>
-  } else if (booksList.apiResponse.totalItems === 0) {
-	return <p>no results in this request</p>
-  } else return null;
+  )
 }
 
 const mapStateToProps = ({apiResponse}: ApiResponse) => {

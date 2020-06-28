@@ -14,7 +14,7 @@ export const setBooks = (params) => {
   let langRestrictParam = langRestrict.length > 0 ? `&langRestrict=${langRestrict}` : '';
   let maxResultParam = maxResults ? `&maxResults=${maxResults}` : '&maxResults=10';
   let keywordsParams = keywords ? keywords : '';
-  let printTypeParam = printType.length > 0 ? `&printType=${printType}` : '';
+  let printTypeParam = printType?.length > 0 ? `&printType=${printType}` : '';
 
   let url = `${apiURL}volumes?q=${keywordsParams}${titleParam}${authorParam}${subjectParams}${maxResultParam}${orderByParam}${printTypeParam}${langRestrictParam}&startIndex=${startIndexParam}&key=${apiKey}`;
 
