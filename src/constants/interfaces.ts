@@ -12,7 +12,7 @@ export interface SearchParams {
   intitle?: string;
   inauthor?: string;
   subject?: string[];
-  filter?: string;
+  filter?: string[];
   download?: string;
   maxResults?: number;
   langRestrict?: string[];

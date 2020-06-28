@@ -34,6 +34,17 @@ const FilterParams = ({params, setAdvancedRequest, setBooks}) => {
 		setAdvancedRequest(params);
 		setBooks(params);
 		break;
+	  case 'Payment':
+		if (params.filter?.includes(e.target.value)) {
+		  params.filter = params.filter.filter(item => {
+			return item !== e.target.value
+		  });
+		} else {
+		  params.filter = [e.target.value];
+		}
+		setAdvancedRequest(params);
+		setBooks(params);
+
 	}
   }
 
@@ -54,8 +65,8 @@ const FilterParams = ({params, setAdvancedRequest, setBooks}) => {
 			<div className="filter-body">
 			  {item.options.map((option, i) => {
 				return (
-				  <div key={i}>
-					<input name={item.type} onChange={(e) => handleParamChange(e, item.type)} type="radio" value={option.param}/>
+				  <div key={i} className='filter-item'>
+					<input className='input-button' name={item.type} onChange={(e) => handleParamChange(e, item.type)} type="radio" value={option.param}/>
 					<label>{option.name}</label>
 				  </div>
 				)
