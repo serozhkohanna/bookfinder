@@ -29,11 +29,12 @@ const FormAdvanced = ({setBooks, setAdvancedRequest}: Props, {searchTitle, searc
 	params.intitle = searchTitle.value;
 	params.inauthor = searchAuthor.value;
 	params.subject = selectedCategory.value;
-	params.filter = filter.split(' ');
+	params.filter = filter ? filter.split(' ') : [];
 	params.download = downloadType.checked && 'epub';
 	params.maxResults = maxResults;
 	params.langRestrict = selectedLanguage.value.split(' ');
 	params.startIndex = 1;
+	params.keywords = [];
 
 	setBooks(params);
 	setAdvancedRequest(params);
