@@ -37,5 +37,21 @@
         }
       }
     }
+
+    .filter-body {
+      .filter-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 7px;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+
+        .input-button {
+          margin-right: 7px;
+        }
+      }
+    }
   }
 }

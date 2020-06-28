@@ -11,12 +11,14 @@ export const setBooks = (params) => {
   let subjectParams = subject ? `+subject:${subject}` : '';
   let startIndexParam = startIndex ? startIndex : '1';
   let orderByParam = orderBy ? `&orderBy=${orderBy}` : '';
-  let langRestrictParam = langRestrict.length > 0 ? `&langRestrict=${langRestrict}` : '';
+  let langRestrictParam = langRestrict?.length > 0 ? `&langRestrict=${langRestrict}` : '';
   let maxResultParam = maxResults ? `&maxResults=${maxResults}` : '&maxResults=10';
   let keywordsParams = keywords ? keywords : '';
   let printTypeParam = printType?.length > 0 ? `&printType=${printType}` : '';
+  let filterParam = filter?.length > 0 ? `&filter=${filter}` : '';
+  let downloadParam = download ? `&download=${download}` : '';
 
-  let url = `${apiURL}volumes?q=${keywordsParams}${titleParam}${authorParam}${subjectParams}${maxResultParam}${orderByParam}${printTypeParam}${langRestrictParam}&startIndex=${startIndexParam}&key=${apiKey}`;
+  let url = `${apiURL}volumes?q=${keywordsParams}${titleParam}${authorParam}${subjectParams}${maxResultParam}${orderByParam}${printTypeParam}${langRestrictParam}${filterParam}${downloadParam}&startIndex=${startIndexParam}&key=${apiKey}`;
 
   return dispatch => {
 	axios.get(url)
