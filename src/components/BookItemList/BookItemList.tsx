@@ -22,11 +22,23 @@ const BookItemList = ({bookItem}) => {
 		  <div className="desc">
 			<p>{bookItem.volumeInfo.description}</p>
 		  </div>
-		  <button className="show-more">
-			show more
-		  </button>
+		  <a className="show-more">
+			Show more
+		  </a>
 		  <div className="info-links">
-			google
+			<div className="subtitle">
+			  Get book
+			</div>
+			{bookItem.accessInfo.pdf.acsTokenLink && <a href={bookItem.accessInfo.pdf.acsTokenLink} className="link-bg">
+                PDF
+            </a>}
+			{bookItem.accessInfo.epub.acsTokenLink &&
+            <a href={bookItem.accessInfo.epub.acsTokenLink} className="link-bg">
+                epub
+            </a>}
+			{bookItem.accessInfo.webReaderLink && <a href={bookItem.accessInfo.webReaderLink} className="link-bg">
+                Google Play
+            </a>}
 		  </div>
 		</div>
 		<div className="info-params">
