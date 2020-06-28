@@ -16,10 +16,10 @@ interface Props {
   className: string;
   setBooks: any;
   setAdvancedRequest: any;
-  params: SearchParams
+  // params: SearchParams
 }
 
-const SearchKeywords = ({className, setBooks, setAdvancedRequest, params}: Props, searchInput: any) => {
+const SearchKeywords = ({className, setBooks, setAdvancedRequest}: Props, searchInput: any) => {
   const [searchValue, setValue] = useState('');
   const [isFocus, setFocus] = useState(false);
 
@@ -40,6 +40,7 @@ const SearchKeywords = ({className, setBooks, setAdvancedRequest, params}: Props
   const handleSearchSubmit = (e) => {
 	e.preventDefault();
 
+	let params: SearchParams = {};
 	let keywords = searchInput.value;
 	params.keywords = keywords.split(' ');
 
@@ -74,10 +75,4 @@ const mapDispatchToProps = {
   setAdvancedRequest
 }
 
-const mapStateToProps = ({advancedRequest}) => {
-  return {
-	params: advancedRequest
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(SearchKeywords);
+export default connect(null, mapDispatchToProps)(SearchKeywords);
