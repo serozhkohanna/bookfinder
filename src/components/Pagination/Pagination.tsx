@@ -26,6 +26,9 @@ const Pagination = ({params, setBooks, setAdvancedRequest, pages}) => {
 	<button disabled={params.startIndex === 0} className='pagination-btn prev'
 			onClick={() => handlePageClick('prev')}>prev
 	</button>
+	<p className="desc">
+	  page {params.startIndex} of {pages}
+	</p>
 	<button disabled={params.startIndex === pages} className='pagination-btn next'
 			onClick={() => handlePageClick('next')}>next
 	</button>
