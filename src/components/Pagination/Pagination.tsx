@@ -1,29 +1,34 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Pagination.scss';
 import { connect } from 'react-redux';
-import { SearchParams, ApiResponse } from "../../constants/interfaces";
 import { setBooks, setAdvancedRequest } from "../../actions/actions";
 
-interface Props {
-
-}
-
-const Pagination = ({params, setBooks, setAdvancedRequest}) => {
-  console.log(params.startIndex, 'page');
-
+const Pagination = ({params, setBooks, setAdvancedRequest, pages}) => {
   const handlePageClick = (type) => {
 	switch (type) {
 	  case 'next':
-		params.startIndex += 1;
-		setAdvancedRequest(params);
-		setBooks(params);
+		if (params.startIndex < pages) {
+		  params.startIndex += 1;
+		  setAdvancedRequest(params);
+		  setBooks(params);
+		}
 		break;
+	  case 'prev':
+		if (params.startIndex !== 0) {
+		  params.startIndex -= 1;
+		  setAdvancedRequest(params);
+		  setBooks(params);
+		}
 	}
   }
 
   return <section className='pagination'>
-	<button className='pagination-btn prev' onClick={() => handlePageClick('prev')}>prev</button>
-	<button className='pagination-btn next' onClick={() => handlePageClick('next')}>next</button>
+	<button disabled={params.startIndex === 0} className='pagination-btn prev'
+			onClick={() => handlePageClick('prev')}>prev
+	</button>
+	<button disabled={params.startIndex === pages} className='pagination-btn next'
+			onClick={() => handlePageClick('next')}>next
+	</button>
   </section>
 }
 

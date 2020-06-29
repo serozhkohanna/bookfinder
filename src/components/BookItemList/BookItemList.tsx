@@ -5,7 +5,7 @@ import './BookItemList.scss';
 const BookItemList = ({bookItem}) => {
   return <div className='book-item'>
 	<div className="book-item-img">
-	  <img src={bookItem.volumeInfo.imageLinks.thumbnail} alt="book-item-img"/>
+	  <img src={bookItem.volumeInfo.imageLinks?.thumbnail} alt="book-item-img"/>
 	</div>
 	<div className="book-item-info">
 	  <div className="info-header">
