@@ -8,11 +8,12 @@ import Favourites from "../FavouritesButton/FavouritesButton";
 
 const Header = ({pageHeader}: any) => {
   const handlePageScroll = () => {
-	(window.pageYOffset >= 60) ? pageHeader.classList.add('header-small') : pageHeader.classList.remove('header-small');
+	if (pageHeader) {
+	  (window.pageYOffset >= 60) ? pageHeader.classList.add('header-small') : pageHeader.classList.remove('header-small');
+	}
   }
-  window.onload = () => {
-	window.addEventListener('scroll', handlePageScroll);
-  }
+
+  window.addEventListener('scroll', handlePageScroll);
 
   return <header ref={(header) => pageHeader = header}>
 	<h1>BookFinder</h1>
