@@ -10,10 +10,11 @@ export const dateFormatting = store => next => action => {
 
     const dateFormatted = {
       ...payload,
-      formattedPublishedDate
     }
 
     const newAction = {...action, payload: dateFormatted};
     next(newAction);
+  } else {
+    next(action);
   }
 }

@@ -33,7 +33,7 @@ const FormAdvanced = ({setBooks, setAdvancedRequest}: Props, {searchTitle, searc
 	params.download = downloadType.checked && 'epub';
 	params.maxResults = maxResults;
 	params.langRestrict = selectedLanguage.value.split(' ');
-	params.startIndex = 1;
+	params.startIndex = 0;
 	params.keywords = [];
 
 	setBooks(params);
