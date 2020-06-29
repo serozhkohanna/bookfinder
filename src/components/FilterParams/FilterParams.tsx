@@ -78,9 +78,10 @@ const FilterParams = ({params, setAdvancedRequest, setBooks}) => {
 			  {item.options.map((option, i) => {
 				return (
 				  <div key={i} className='filter-item'>
-					<input className='input-button' name={item.type} onChange={(e) => handleParamChange(e, item.type)}
+					<input id={option.param} className='input-button' name={item.type}
+						   onChange={(e) => handleParamChange(e, item.type)}
 						   type="radio" value={option.param}/>
-					<label>{option.name}</label>
+					<label htmlFor={option.param}>{option.name}</label>
 				  </div>
 				)
 			  })}
