@@ -3,9 +3,17 @@
 
 .book-item {
   display: flex;
-  height: 230px;
+  height: 280px;
   margin-bottom: 70px;
   position: relative;
+  transform: scaleX(1);
+
+  &:hover {
+    box-shadow: $box-shadow-medium;
+    transform: scaleX(1.03);
+    transition: $easing;
+    //border: 1px solid $sky-blue;
+  }
 
   &:after {
     content: '';
@@ -23,12 +31,12 @@
   }
 
   &-img {
-    margin-right: 45px;
-    width: 160px;
+    margin-right: 20px;
+    width: 170px;
     height: 100%;
     display: flex;
-    max-width: 160px;
-    min-width: 160px;
+    max-width: 170px;
+    min-width: 170px;
     overflow: hidden;
     border-radius: $border-radius-base;
 
@@ -42,17 +50,26 @@
     display: flex;
     flex-direction: column;
     flex-grow: 1;
+    padding: 15px 15px 15px 10px;
 
     .info-header {
-      margin-bottom: 20px;
+      margin-bottom: 15px;
       display: flex;
       flex-direction: column;
       padding-right: 150px;
+      position: relative;
 
       .title {
         margin-bottom: 2px;
         font-family: $Merriweather-Bold;
         letter-spacing: $ls-small;
+
+        h5 {
+          width: 420px;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
       }
 
       .authors {
@@ -65,28 +82,148 @@
           margin-right: 5px;
         }
       }
+
+      .labels {
+        position: absolute;
+        right: 0;
+        display: flex;
+        align-items: center;
+
+        .bookmark {
+          margin-right: 20px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .button {
+          min-width: 100px;
+          padding: 0 10px;
+        }
+      }
     }
 
     .info-content {
       display: flex;
+      height: 100%;
 
       .info-desc {
         display: flex;
         flex-direction: column;
         margin-right: 30px;
-        width: 400px;
+        width: 450px;
 
         .desc {
-          margin-bottom: 30px;
-          max-height: 80px;
+          max-height: 68px;
           height: 100%;
           overflow: hidden;
+          margin-bottom: 5px;
+          font-family: $WorkSans-Light;
+        }
+
+        .show-more {
+          align-self: flex-end;
+          font-size: 12px;
+          font-family: $WorkSans-Regular;
+          letter-spacing: $ls-small;
+          color: $blue;
+          position: relative;
+          padding-right: 20px;
+          cursor: pointer;
+          margin-right: 20px;
+          margin-bottom: 12px;
+
+          &:after {
+            content: url('../../assets/icons/arrow-right.svg');
+            position: absolute;
+            right: 5px;
+            transition: $easing;
+          }
+
+          &:hover {
+            &:after {
+              right: 0;
+              transition: $easing;
+            }
+          }
+        }
+
+        .info-links {
+          margin-top: auto;
+
+          .subtitle {
+            font-size: 12px;
+            font-family: $WorkSans-Semibold;
+            color: $light-gray;
+            margin-bottom: 5px;
+          }
+
+          .link-bg {
+            //font-size: 12px;
+            cursor: pointer;
+            padding: 5px;
+            margin-right: 10px;
+
+            &:last-child {
+              margin-right: 0;
+            }
+          }
         }
       }
 
       .info-params {
         display: flex;
         flex-direction: column;
+
+        &-item {
+          margin-bottom: 10px;
+          font-size: 12px;
+          font-family: $WorkSans-Medium;
+          color: $deep-blue;
+
+          &:last-child {
+            margin-bottom: 12px;
+          }
+
+          p {
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            width: 200px;
+            overflow: hidden;
+
+            span {
+              margin-right: 3px;
+              color: $light-gray;
+
+              &.uppercase {
+                text-transform: uppercase;
+                color: $deep-blue;
+              }
+            }
+          }
+        }
+
+        &-rating {
+          .star {
+            margin-right: 3px;
+
+            &:last-child {
+              margin-right: 0;
+            }
+          }
+        }
+
+        &-reviews {
+          font-family: $WorkSans-Regular;
+          color: $light-gray;
+          font-size: 10px;
+          width: 60px;
+          text-align: center;
+
+          span {
+            margin-right: 3px;
+          }
+        }
       }
     }
   }

@@ -16,6 +16,13 @@
 
 //WorkSans
 @font-face {
+  font-family: 'WorkSans Light';
+  src: url("./WorkSans/WorkSans-Light.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
   font-family: 'WorkSans Regular';
   src: url("./WorkSans/WorkSans-Regular.ttf") format("truetype");
   font-weight: normal;
