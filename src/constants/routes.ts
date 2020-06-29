@@ -1,2 +1,2 @@
-export const HOME_PAGE = '/bookfinder',
-  SEARCH_PAGE = '/bookfinder/advanced-search';
+export const HOME_PAGE = '/',
+  SEARCH_PAGE = '/advanced-search';
