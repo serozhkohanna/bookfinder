@@ -21,6 +21,8 @@
     }
 
     &.is-open {
+      padding-bottom: 15px;
+
       .filter-header {
         margin-bottom: 0;
 
@@ -45,6 +47,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+      user-select: none;
 
       .chevron-icon {
         width: 8px;
@@ -63,6 +66,7 @@
         display: flex;
         align-items: center;
         margin-bottom: 7px;
+        user-select: none;
 
         &:last-child {
           margin-bottom: 0;
