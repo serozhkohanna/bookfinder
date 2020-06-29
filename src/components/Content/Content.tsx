@@ -1,14 +1,16 @@
 import React from 'react';
 import './Content.scss';
 import { connect } from 'react-redux';
-import { ApiResponse } from "../../constants/interfaces";
 
 import SortParams from "../SortParams/SortParams";
 import FilterParams from "../FilterParams/FilterParams";
 import BookItemList from "../BookItemList/BookItemList";
+import Pagination from "../Pagination/Pagination";
 
-const Content = ({booksList}) => {
+const Content = ({booksList, params}) => {
   const bookList = booksList.apiResponse;
+  const resultOnPage = params.maxResults || 10;
+  const pages = Math.floor(bookList.totalItems / resultOnPage);
 
   return (
 	<section className='content'>
@@ -30,13 +32,17 @@ const Content = ({booksList}) => {
 		  })}
         </div>}
 	  </div>
+	  <div className="content-footer">
+		{pages > 0 && <Pagination pages={pages}/>}
+	  </div>
 	</section>
   )
 }
 
-const mapStateToProps = ({apiResponse}: ApiResponse) => {
+const mapStateToProps = ({apiResponse, advancedRequest}) => {
   return {
-	booksList: apiResponse
+	booksList: apiResponse,
+	params: advancedRequest
   }
 }
 

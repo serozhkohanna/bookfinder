@@ -18,6 +18,7 @@ const BrowseByGenre = ({setBooks, setAdvancedRequest}) => {
   const getDataFromChild = (param) => {
 	let params: SearchParams = {};
 	params.subject = param.split(' ');
+	params.startIndex = 0;
 
 	setBooks(params);
 	setAdvancedRequest(params);

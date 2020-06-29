@@ -43,6 +43,7 @@ const SearchKeywords = ({className, setBooks, setAdvancedRequest}: Props, search
 	let params: SearchParams = {};
 	let keywords = searchInput.value;
 	params.keywords = keywords.split(' ');
+	params.startIndex = 0;
 
 	setBooks(params);
 	setAdvancedRequest(params);

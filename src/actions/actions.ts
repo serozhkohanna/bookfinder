@@ -9,7 +9,7 @@ export const setBooks = (params) => {
   let titleParam = intitle ? `intitle:${intitle}` : '';
   let authorParam = inauthor ? `+inauthor:${inauthor}` : '';
   let subjectParams = subject ? `+subject:${subject}` : '';
-  let startIndexParam = startIndex ? startIndex : '1';
+  let startIndexParam = startIndex ? startIndex : '0';
   let orderByParam = orderBy ? `&orderBy=${orderBy}` : '';
   let langRestrictParam = langRestrict?.length > 0 ? `&langRestrict=${langRestrict}` : '';
   let maxResultParam = maxResults ? `&maxResults=${maxResults}` : '&maxResults=10';

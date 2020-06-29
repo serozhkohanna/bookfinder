@@ -5,9 +5,22 @@ import { connect } from 'react-redux';
 import { setAdvancedRequest, setBooks } from "../../actions/actions";
 
 const FilterParams = ({params, setAdvancedRequest, setBooks}) => {
-  const [isOpen, setAccordion] = useState(true);
+  const [isOpen, setAccordion] = useState();
 
-  const handleCloseHeader = () => (e) => {
+  const handleCloseHeader = (type) => {
+	if (isOpen?.includes(type)) {
+	  let updatedArray: string[];
+
+	  updatedArray = isOpen.filter(item => {
+		return item !== type
+	  })
+	  setAccordion(updatedArray);
+	} else {
+	  let updatedArray: string[] = isOpen ? [...isOpen] : [];
+
+	  updatedArray.push(type);
+	  setAccordion(updatedArray);
+	}
   }
 
   const handleParamChange = (e, type) => {
@@ -44,7 +57,6 @@ const FilterParams = ({params, setAdvancedRequest, setBooks}) => {
 		}
 		setAdvancedRequest(params);
 		setBooks(params);
-
 	}
   }
 
@@ -52,8 +64,8 @@ const FilterParams = ({params, setAdvancedRequest, setBooks}) => {
 	{
 	  filters.map(item => {
 		return (
-		  <div key={item.id} className='filter-params-item'>
-			<div className="filter-header" onClick={handleCloseHeader()}>
+		  <div key={item.id} className={`filter-params-item ${isOpen?.includes(item.type) && 'is-open'}`}>
+			<div className="filter-header" onClick={() => handleCloseHeader(item.type)}>
 			  <p>{item.type}</p>
 			  <svg className='chevron-icon' width="20" height="12" viewBox="0 0 20 12" fill="none"
 				   xmlns="http://www.w3.org/2000/svg">
@@ -62,7 +74,7 @@ const FilterParams = ({params, setAdvancedRequest, setBooks}) => {
 				  fill="#fff"/>
 			  </svg>
 			</div>
-			<div className="filter-body">
+			<div className='filter-body'>
 			  {item.options.map((option, i) => {
 				return (
 				  <div key={i} className='filter-item'>

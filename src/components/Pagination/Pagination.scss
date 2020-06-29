@@ -1,0 +1,56 @@
+@import "src/assets/colors";
+@import "src/assets/variables";
+
+.pagination {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .pagination-btn {
+    cursor: pointer;
+
+    &.next {
+      position: relative;
+      padding-right: 55px;
+
+      &:after {
+        content: url('../../assets/icons/arrow-large.svg');
+        position: absolute;
+        right: 10px;
+        transition: $easing;
+      }
+
+      &:hover {
+        &:after {
+          right: 0;
+          transition: $easing;
+        }
+      }
+    }
+
+    &.prev {
+      position: relative;
+      padding-left: 55px;
+
+      &:after {
+        content: url('../../assets/icons/arrow-large.svg');
+        transform: rotateY(180deg);
+        position: absolute;
+        left: 10px;
+        transition: $easing;
+      }
+
+      &:hover {
+        &:after {
+          left: 0;
+          transition: $easing;
+        }
+      }
+    }
+  }
+
+  .desc {
+    color: $light-gray
+  }
+}

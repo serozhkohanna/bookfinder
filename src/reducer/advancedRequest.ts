@@ -3,7 +3,8 @@ import { SearchParams } from "../constants/interfaces";
 
 const initialState: SearchParams = {
   langRestrict: [],
-  printType: []
+  printType: [],
+  startIndex: 0
 }
 
 export default function advancedRequest(state = initialState, action) {
