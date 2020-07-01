@@ -4,16 +4,33 @@
 .advanced-form {
   display: flex;
   flex-direction: column;
-  padding-top: 60px;
+  padding-top: 30px;
+  @media (min-width: $tablet) {
+    padding-top: 60px;
+  }
 
   .form-wrapper {
     width: 100%;
-    margin-bottom: 30px;
     display: flex;
+    @media (min-width: $tablet) {
+      margin-bottom: 30px;
+    }
 
     &-item {
       display: flex;
       flex-direction: column;
+      margin-bottom: 20px;
+
+      @media (min-width: $tablet) {
+        margin-bottom: 0;
+      }
+
+      &.is-hidden-mobile {
+        display: none;
+        @media (min-width: $tablet) {
+          display: flex;
+        }
+      }
 
       .select {
         font-family: $WorkSans-Regular;
@@ -25,7 +42,7 @@
         width: 190px;
 
         + label {
-          width: 190px;
+          width: 250px;
           border-top: 3px solid $yellow;
           font-family: $WorkSans-Regular;
           padding: 5px;
@@ -34,6 +51,10 @@
           > span {
             color: $deep-blue;
             letter-spacing: $ls-small;
+          }
+
+          @media (min-width: $tablet) {
+            width: 190px;
           }
         }
       }
@@ -49,16 +70,22 @@
 
     .btn-wrapper {
       display: flex;
-      height: 31px;
+      height: 40px;
+      @media (min-width: $tablet) {
+        height: 31px;
+      }
 
       .link-bg {
-        width: 60px;
+        width: 80px;
         display: flex;
         align-items: center;
         justify-content: center;
         margin-right: 16px;
         cursor: pointer;
         font-family: $WorkSans-Semibold;
+        @media (min-width: $tablet) {
+          width: 60px;
+        }
 
         &.active {
           background-position-y: 100%;
@@ -84,21 +111,35 @@
     }
 
     &.double {
-      .form-wrapper-item {
-        margin-right: 90px;
+      flex-direction: column;
+      @media (min-width: $tablet) {
+        flex-direction: row;
+      }
 
-        &:last-child {
-          margin-right: 0;
+      .form-wrapper-item {
+        @media (min-width: $tablet) {
+          margin-right: 90px;
+
+          &:last-child {
+            margin-right: 0;
+          }
         }
       }
     }
 
     &.triple {
-      .form-wrapper-item {
-        margin-right: 58px;
+      flex-direction: column;
+      @media (min-width: $tablet) {
+        flex-direction: row;
+      }
 
-        &:last-child {
-          margin-right: 0;
+      .form-wrapper-item {
+        @media (min-width: $tablet) {
+          margin-right: 58px;
+
+          &:last-child {
+            margin-right: 0;
+          }
         }
       }
     }

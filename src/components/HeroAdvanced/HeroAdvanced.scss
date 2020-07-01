@@ -4,28 +4,49 @@
 .hero-advanced {
   display: flex;
   flex-wrap: wrap;
-  padding: 60px 0 20px;
-  margin-bottom: 80px;
+  padding: 40px 0 20px;
+  margin-bottom: 50px;
+  justify-content: center;
+  @media (min-width: $tablet) {
+    padding: 60px 0 20px;
+  }
+  @media (min-width: $laptop) {
+    padding-top: 80px;
+    justify-content: left;
+  }
 
   &-title {
     width: 100%;
     margin-bottom: 30px;
     font-family: $Merriweather-Regular;
     font-weight: 300;
+    text-align: center;
+    @media (min-width: $laptop) {
+      text-align: left;
+    }
   }
 
   .advanced-form {
-    width: 50%;
-    max-width: 500px;
+    margin-bottom: 50px;
+    @media (min-width: $laptop) {
+      width: 50%;
+      max-width: 500px;
+      margin-bottom: 0;
+    }
   }
 
   &-illustration {
     width: 400px;
-    height: 350px;
+    height: 250px;
     background: url("../../assets/img/search-dog.svg") no-repeat;
     background-size: contain;
     background-position-y: top;
     background-position-x: center;
-    margin-left: auto;
+    @media (min-width: $tablet) {
+      height: 350px;
+    }
+    @media (min-width: $laptop) {
+      margin-left: auto;
+    }
   }
 }

@@ -97,7 +97,7 @@ const FormAdvanced = ({setBooks, setAdvancedRequest}: Props, {searchTitle, searc
 			 onClick={() => handlePayment('paid-ebooks')}>Paid</a>
 		</div>
 	  </div>
-	  <div className="form-wrapper-item">
+	  <div className="form-wrapper-item is-hidden-mobile">
 		<label className='label' htmlFor="book-download">
 		  Download
 		</label>
@@ -122,7 +122,7 @@ const FormAdvanced = ({setBooks, setAdvancedRequest}: Props, {searchTitle, searc
 		  <option value="de">German</option>
 		</select>
 	  </div>
-	  <div className="form-wrapper-item">
+	  <div className="form-wrapper-item is-hidden-mobile">
 		<label className='label'>
 		  Return results
 		</label>
