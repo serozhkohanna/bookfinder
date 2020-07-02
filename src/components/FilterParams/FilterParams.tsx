@@ -64,7 +64,7 @@ const FilterParams = ({params, setAdvancedRequest, setBooks}) => {
 	{
 	  filters.map(item => {
 		return (
-		  <div key={item.id} className={`filter-params-item ${isOpen?.includes(item.type) && 'is-open'}`}>
+		  <div key={item.id} className={`filter-params-item ${!isOpen?.includes(item.type) && 'is-open'}`}>
 			<div className="filter-header" onClick={() => handleCloseHeader(item.type)}>
 			  <p>{item.type}</p>
 			  <svg className='chevron-icon' width="20" height="12" viewBox="0 0 20 12" fill="none"
