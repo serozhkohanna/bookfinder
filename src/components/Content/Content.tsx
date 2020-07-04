@@ -1,6 +1,8 @@
 import React from 'react';
+import { useHistory } from "react-router-dom";
 import './Content.scss';
 import { connect } from 'react-redux';
+import { SEARCH_PAGE } from "../../constants/routes";
 
 import SortParams from "../SortParams/SortParams";
 import FilterParams from "../FilterParams/FilterParams";
@@ -8,9 +10,14 @@ import BookItemList from "../BookItemList/BookItemList";
 import Pagination from "../Pagination/Pagination";
 
 const Content = ({booksList, params}) => {
+  let history = useHistory();
   const bookList = booksList.apiResponse;
   const resultOnPage = params.maxResults || 10;
   const pages = Math.floor(bookList.totalItems / resultOnPage);
+
+  const receiveCallback = (item) => {
+	history.push(`${SEARCH_PAGE}/${item.id}`);
+  }
 
   return (
 	<section className='content'>
@@ -27,7 +34,7 @@ const Content = ({booksList, params}) => {
 		{booksList.apiResponse.totalItems > 0 && <div className="books-list">
 		  {booksList.apiResponse.items?.map((item, i) => {
 			return (
-			  <BookItemList key={i} bookItem={item}/>
+			  <BookItemList sendCallback={() => receiveCallback(item)} key={i} bookItem={item}/>
 			)
 		  })}
         </div>}

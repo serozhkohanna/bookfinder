@@ -1,8 +1,14 @@
 import React from 'react';
+
 import './BookItemList.scss';
 import noCoverImg from '../../assets/img/nocover.png';
 
-const BookItemList = ({bookItem}) => {
+
+const BookItemList = ({bookItem, sendCallback}) => {
+  const handleMoreClick = () => {
+	sendCallback();
+  }
+
   return <div className='book-item'>
 	<div className="book-item-img">
 	  <img src={bookItem.volumeInfo.imageLinks?.thumbnail || noCoverImg} alt="book-item-img"/>
@@ -33,7 +39,7 @@ const BookItemList = ({bookItem}) => {
 		  <div className="desc">
 			<p>{bookItem.volumeInfo.description}</p>
 		  </div>
-		  <a className="show-more">
+		  <a className="show-more" onClick={handleMoreClick}>
 			Show more
 		  </a>
 		  <div className="info-links">
