@@ -7,6 +7,10 @@
   position: relative;
   //position: sticky;
   //top: 80px;
+  flex-direction: column;
+  @media (min-width: $tablet) {
+    flex-direction: row;
+  }
   @media (min-width: $laptop) {
     flex-direction: column;
     max-width: 180px;
@@ -15,16 +19,19 @@
   }
 
   &-item {
-    width: 180px;
+    width: 100%;
     background: $sky-blue;
     color: $deep-blue;
     border-radius: $border-radius-base;
     padding: 15px 20px 15px;
-    margin-right: 10px;
-    margin-bottom: 50px;
-
-    &:last-child {
-      margin-right: 0;
+    margin-bottom: 10px;
+    @media (min-width: $tablet) {
+      width: 180px;
+      margin-bottom: 50px;
+      margin-right: 10px;
+      &:last-child {
+        margin-right: 0;
+      }
     }
 
     @media (min-width: $laptop) {
@@ -39,7 +46,10 @@
     &.is-open {
       padding-bottom: 15px;
       height: 100%;
-      margin-bottom: 0;
+      margin-bottom: 10px;
+      @media (min-width: $tablet) {
+        margin-bottom: 0;
+      }
       @media (min-width: $laptop) {
         height: auto;
         margin-bottom: 10px;
@@ -59,7 +69,7 @@
         visibility: hidden;
         padding: 0;
         width: 0;
-        transition: width .5s ease-in-out, visibility .2s ease-in-out, height .3s ease-in-out;
+        //transition: width .5s ease-in-out, height .3s ease-in-out;
         @media (min-width: $laptop) {
           width: auto;
         }
@@ -91,15 +101,17 @@
 
     .filter-body {
       width: 100%;
-      position: absolute;
       background: $sky-blue;
       left: 0;
-      padding: 20px;
       display: flex;
       height: auto;
       visibility: visible;
-      transition: width .5s ease-in-out, visibility .4s ease-in-out, height .3s ease-in-out;
-
+      flex-direction: column;
+      @media (min-width: $tablet) {
+        flex-direction: row;
+        position: absolute;
+        padding: 20px;
+      }
       @media (min-width: $laptop) {
         width: auto;
         position: static;
@@ -112,18 +124,21 @@
         display: flex;
         align-items: center;
         user-select: none;
-        margin-right: 20px;
-
-        &:last-child {
-          margin-right: 0;
+        margin-bottom: 7px;
+        @media (min-width: $tablet) {
+          margin-bottom: 0;
+          margin-right: 20px;
+          &:last-child {
+            margin-right: 0;
+          }
         }
-
         @media (min-width: $laptop) {
           margin-bottom: 7px;
           margin-right: 0;
-          &:last-child {
-            margin-bottom: 0;
-          }
+        }
+
+        &:last-child {
+          margin-bottom: 0;
         }
 
         .input-button {
