@@ -109,6 +109,37 @@
           }
         }
       }
+
+      &-body {
+        .subtitle {
+          font-size: 14px;
+          font-family: $WorkSans-Semibold;
+          color: $light-gray;
+          margin-bottom: 5px;
+        }
+
+        .body-description {
+          margin-bottom: 20px;
+
+          .desc {
+            font-family: $WorkSans-Light;
+          }
+        }
+
+        .links {
+          margin-top: auto;
+
+          .link-bg {
+            cursor: pointer;
+            padding: 5px 10px;
+            margin-right: 10px;
+
+            &:last-child {
+              margin-right: 0;
+            }
+          }
+        }
+      }
     }
   }
 

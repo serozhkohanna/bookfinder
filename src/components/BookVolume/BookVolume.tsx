@@ -53,6 +53,31 @@ const BookVolume = ({bookVolume}) => {
 				</div>
 			  </div>
 			</div>
+			<div className="volume-content-body">
+			  <div className="body-description">
+				<div className="subtitle">
+				  About
+				</div>
+				<div className="desc">
+				  <p>{bookVolume.volumeInfo?.description}</p>
+				</div>
+			  </div>
+			  <div className="links">
+				<div className="subtitle">
+				  Get book
+				</div>
+				{bookVolume.accessInfo?.pdf.acsTokenLink && <a href={bookVolume.accessInfo.pdf.acsTokenLink} className="link-bg">
+                    PDF
+                </a>}
+				{bookVolume.accessInfo?.epub.acsTokenLink &&
+                <a href={bookVolume.accessInfo?.epub.acsTokenLink} className="link-bg">
+                    epub
+                </a>}
+				{bookVolume.accessInfo?.webReaderLink && <a href={bookVolume.accessInfo.webReaderLink} className="link-bg">
+                    Google Play
+                </a>}
+			  </div>
+			</div>
 		  </div>
 		</div>
 		<div className="bookVolume-details">
