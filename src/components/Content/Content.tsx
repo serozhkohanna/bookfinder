@@ -3,13 +3,14 @@ import { useHistory } from "react-router-dom";
 import './Content.scss';
 import { connect } from 'react-redux';
 import { SEARCH_PAGE } from "../../constants/routes";
+import { setBookVolume } from "../../actions/actions";
 
 import SortParams from "../SortParams/SortParams";
 import FilterParams from "../FilterParams/FilterParams";
 import BookItemList from "../BookItemList/BookItemList";
 import Pagination from "../Pagination/Pagination";
 
-const Content = ({booksList, params}) => {
+const Content = ({booksList, params, setBookVolume}) => {
   let history = useHistory();
   const bookList = booksList.apiResponse;
   const resultOnPage = params.maxResults || 10;
@@ -17,6 +18,8 @@ const Content = ({booksList, params}) => {
 
   const receiveCallback = (item) => {
 	history.push(`${SEARCH_PAGE}/${item.id}`);
+	console.log(setBookVolume);
+	setBookVolume(item);
   }
 
   return (
@@ -53,4 +56,8 @@ const mapStateToProps = ({apiResponse, advancedRequest}) => {
   }
 }
 
-export default connect(mapStateToProps)(Content);
+const mapStateToDispatch = {
+  setBookVolume
+}
+
+export default connect(mapStateToProps, mapStateToDispatch)(Content);
