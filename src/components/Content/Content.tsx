@@ -18,7 +18,6 @@ const Content = ({booksList, params, setBookVolume}) => {
 
   const receiveCallback = (item) => {
 	history.push(`${SEARCH_PAGE}/${item.id}`);
-	console.log(setBookVolume);
 	setBookVolume(item);
   }
 
