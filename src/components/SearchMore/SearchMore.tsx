@@ -23,7 +23,6 @@ const SearchMore = ({setBooks, setAdvancedRequest, category}) => {
 	history.push(SEARCH_PAGE);
   }
 
-  console.log(category, 'categ')
   return <button className='search-more' onClick={() => handleMoreClick(category)}>see all</button>
 }
 
