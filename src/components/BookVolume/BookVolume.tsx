@@ -1,21 +1,59 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import './BookVolume.scss';
 import { connect } from 'react-redux';
 import BookIcon from '../../assets/icons/book.svg';
 
 import SearchMore from "../SearchMore/SearchMore";
 import BookVolumeCard from "../BookVolumeCard/BookVolumeCard";
+import { apiKey, apiURL } from "../../constants/googleApi";
+import noCoverImg from '../../assets/img/nocover.png';
 
 const BookVolume = ({bookVolume}) => {
+  const [seeMoreItem, setItem] = useState();
+
+  useEffect(() => {
+	if (bookVolume) {
+	  let url = `${apiURL}volumes?q=subject:${bookVolume.volumeInfo.categories[0]}&key=${apiKey}`;
+
+	  fetch(url)
+		.then(res => res.json())
+		.then(data => {
+		  if (data.items.length > 0) {
+			setItem(data.items.slice(0, 4));
+		  }
+		});
+	}
+  }, [])
+
+  const renderItems = () => {
+	if (seeMoreItem) {
+	  return seeMoreItem.map((item, i) => {
+		return <div key={i} className='body-item'>
+		  <div className="img-wrapper">
+			<img src={item.volumeInfo.imageLinks?.thumbnail || noCoverImg} alt="book-cover"/>
+		  </div>
+		  <div className="item-title">
+			{item.volumeInfo.title}
+		  </div>
+		  <div className="item-author">
+			{item.volumeInfo.authors[0]}
+		  </div>
+		</div>
+	  })
+	} else {
+	  return null
+	}
+  }
+
   const renderCategories = (category) => {
 	if (category) {
 	  return <div className="bookVolume-categories">
 		<div className="bookVolume-categories-header">
-		  <h4>More in category <b><i>{category}</i></b></h4>
+		  <h4>More in category <a className="link-bg"><b><i>{category}</i></b></a></h4>
 		  <SearchMore category={category}/>
 		</div>
 		<div className="bookVolume-categories-body">
-		  books
+		  {renderItems()}
 		</div>
 	  </div>
 	} else return null;
