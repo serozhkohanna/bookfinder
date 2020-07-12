@@ -68,3 +68,10 @@ a {
     }
   }
 }
+
+a {
+  &.link-red {
+    color: $orange;
+    text-transform: uppercase;
+  }
+}

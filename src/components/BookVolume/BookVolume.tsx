@@ -49,7 +49,9 @@ const BookVolume = ({bookVolume}) => {
 				  {bookVolume.volumeInfo?.categories && <button className="button danger is-medium">
 					{bookVolume.volumeInfo?.categories[0]}
                   </button>}
-				  {<button className='button info is-medium'>285 <span>UAH</span></button>}
+				  {<button
+					className='button info is-medium'>{Math.round(bookVolume.saleInfo?.retailPrice?.amount) || 'free'}
+					<span>{bookVolume.saleInfo?.retailPrice?.currencyCode}</span></button>}
 				</div>
 			  </div>
 			</div>
@@ -66,14 +68,16 @@ const BookVolume = ({bookVolume}) => {
 				<div className="subtitle">
 				  Get book
 				</div>
-				{bookVolume.accessInfo?.pdf.acsTokenLink && <a href={bookVolume.accessInfo.pdf.acsTokenLink} className="link-bg">
+				{bookVolume.accessInfo?.pdf.acsTokenLink &&
+                <a href={bookVolume.accessInfo.pdf.acsTokenLink} className="link-bg">
                     PDF
                 </a>}
 				{bookVolume.accessInfo?.epub.acsTokenLink &&
                 <a href={bookVolume.accessInfo?.epub.acsTokenLink} className="link-bg">
                     epub
                 </a>}
-				{bookVolume.accessInfo?.webReaderLink && <a href={bookVolume.accessInfo.webReaderLink} className="link-bg">
+				{bookVolume.accessInfo?.webReaderLink &&
+                <a href={bookVolume.accessInfo.webReaderLink} className="link-bg">
                     Google Play
                 </a>}
 			  </div>

@@ -7,13 +7,28 @@
   margin-bottom: 70px;
   position: relative;
   transform: scaleX(1);
-  width: calc(100% - 50px);
+  //width: calc(100% - 50px);
   width: 100%;
+
+  .link-red {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    opacity: 0;
+    font-size: 12px;
+    cursor: pointer;
+    transition: $easing;
+  }
 
   &:hover {
     box-shadow: $box-shadow-medium;
     transform: scaleX(1.03);
     transition: $easing;
+
+    .link-red {
+      opacity: 1;
+      transition: $easing;
+    }
   }
 
   &:after {

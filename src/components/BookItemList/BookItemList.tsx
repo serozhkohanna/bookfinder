@@ -102,6 +102,9 @@ const BookItemList = ({bookItem, sendCallback}) => {
 			  <span>{bookItem.volumeInfo.ratingsCount || '0'}</span>{bookItem.volumeInfo.ratingsCount > 1 ? 'reviews' : 'review'}
 			</p>
 		  </div>
+		  <a className="link-red" onClick={handleMoreClick}>
+			DETAILS
+		  </a>
 		</div>
 	  </div>
 	</div>
