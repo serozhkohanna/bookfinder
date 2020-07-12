@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useHistory } from 'react-router-dom';
 import './BookVolume.scss';
 import { connect } from 'react-redux';
 import BookIcon from '../../assets/icons/book.svg';
@@ -8,8 +9,12 @@ import BookVolumeCard from "../BookVolumeCard/BookVolumeCard";
 import { apiKey, apiURL } from "../../constants/googleApi";
 import noCoverImg from '../../assets/img/nocover.png';
 
-const BookVolume = ({bookVolume}) => {
+import { setBookVolume } from "../../actions/actions";
+import { SEARCH_PAGE } from "../../constants/routes";
+
+const BookVolume = ({bookVolume, setBookVolume}) => {
   const [seeMoreItem, setItem] = useState();
+  const history = useHistory();
 
   useEffect(() => {
 	if (bookVolume) {
@@ -25,13 +30,18 @@ const BookVolume = ({bookVolume}) => {
 	}
   }, [])
 
+  const handleMoreClick = (item) => {
+	setBookVolume(item);
+	history.push(`${SEARCH_PAGE}/${item.id}`);
+  }
+
   const renderItems = () => {
 	if (seeMoreItem) {
 	  return seeMoreItem.map((item, i) => {
 		return <div key={i} className='body-item'>
-		  <div className="img-wrapper">
+		  <a href='#details-page' className="img-wrapper" onClick={() => handleMoreClick(item)}>
 			<img src={item.volumeInfo.imageLinks?.thumbnail || noCoverImg} alt="book-cover"/>
-		  </div>
+		  </a>
 		  <div className="item-title">
 			{item.volumeInfo.title}
 		  </div>
@@ -49,7 +59,7 @@ const BookVolume = ({bookVolume}) => {
 	if (category) {
 	  return <div className="bookVolume-categories">
 		<div className="bookVolume-categories-header">
-		  <h4>More in category <a className="link-bg"><b><i>{category}</i></b></a></h4>
+		  <h4>Close to category <a className="link-bg"><b><i>{category}</i></b></a></h4>
 		  <SearchMore category={category}/>
 		</div>
 		<div className="bookVolume-categories-body">
@@ -163,4 +173,8 @@ const mapStateToProps = ({bookVolume}) => {
   }
 }
 
-export default connect(mapStateToProps)(BookVolume);
+const mapDispatchToProps = {
+  setBookVolume
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(BookVolume);
