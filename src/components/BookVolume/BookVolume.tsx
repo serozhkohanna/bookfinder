@@ -17,7 +17,7 @@ const BookVolume = ({bookVolume, setBookVolume}) => {
   const history = useHistory();
 
   useEffect(() => {
-	if (bookVolume) {
+	if (bookVolume && bookVolume.volumeInfo.categories) {
 	  let url = `${apiURL}volumes?q=subject:${bookVolume.volumeInfo.categories[0]}&key=${apiKey}`;
 
 	  fetch(url)
@@ -56,7 +56,7 @@ const BookVolume = ({bookVolume, setBookVolume}) => {
   }
 
   const renderCategories = (category) => {
-	if (category) {
+	if (category && bookVolume.volumeInfo.categories) {
 	  return <div className="bookVolume-categories">
 		<div className="bookVolume-categories-header">
 		  <h4>Close to category <a className="link-bg"><b><i>{category}</i></b></a></h4>
@@ -158,7 +158,7 @@ const BookVolume = ({bookVolume, setBookVolume}) => {
 			</div>
 		  </div>
 		</div>
-		{renderCategories(bookVolume.volumeInfo?.categories[0])}
+		{renderCategories(bookVolume.volumeInfo?.categories ? bookVolume.volumeInfo?.categories[0] : 'all')}
 	  </div>
 	} else return null
   }
