@@ -1,4 +1,4 @@
-import { SET_BOOKS, SET_ADVANCED_REQUEST, SET_BOOK_VOLUME } from "../constants/action-types";
+import { SET_BOOKS, SET_ADVANCED_REQUEST, SET_BOOK_VOLUME, SET_CATEGORIES } from "../constants/action-types";
 import { apiKey, apiURL } from "../constants/googleApi";
 
 import axios from 'axios';
@@ -40,3 +40,17 @@ export const setBookVolume = payload => ({
   type: SET_BOOK_VOLUME,
   payload
 })
+
+export const setMore = (param) => {
+  let url = `${apiURL}volumes?q=${param}&key=${apiKey}`;
+
+  return dispatch => {
+	axios.get(url)
+	  .then(response => {
+		dispatch({
+		  type: SET_CATEGORIES,
+		  payload: response.data
+		})
+	  })
+  }
+}

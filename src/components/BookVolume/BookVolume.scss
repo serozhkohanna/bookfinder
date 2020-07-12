@@ -147,6 +147,7 @@
 
   &-details {
     display: flex;
+    margin-bottom: 80px;
 
     .book-volume-card {
       margin-right: 55px;
@@ -168,6 +169,30 @@
         display: flex;
         justify-content: center;
       }
+    }
+  }
+
+  &-categories {
+    display: flex;
+    flex-direction: column;
+
+    &-header {
+      margin-bottom: 40px;
+      position: relative;
+
+      h4 {
+        font-family: $Merriweather-Regular;
+      }
+
+      .search-more {
+        position: absolute;
+        right: 0;
+        top: 40%;
+      }
+    }
+
+    &-body {
+      display: flex;
     }
   }
 }

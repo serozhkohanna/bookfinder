@@ -3,10 +3,24 @@ import './BookVolume.scss';
 import { connect } from 'react-redux';
 import BookIcon from '../../assets/icons/book.svg';
 
+import SearchMore from "../SearchMore/SearchMore";
 import BookVolumeCard from "../BookVolumeCard/BookVolumeCard";
 
 const BookVolume = ({bookVolume}) => {
-  console.log(bookVolume);
+  const renderCategories = (category) => {
+	if (category) {
+	  return <div className="bookVolume-categories">
+		<div className="bookVolume-categories-header">
+		  <h4>More in category <b><i>{category}</i></b></h4>
+		  <SearchMore category={category}/>
+		</div>
+		<div className="bookVolume-categories-body">
+		  books
+		</div>
+	  </div>
+	} else return null;
+  }
+
   const renderBookVolume = () => {
 	if (bookVolume) {
 	  return <div>
@@ -88,14 +102,15 @@ const BookVolume = ({bookVolume}) => {
 		  </div>
 		</div>
 		<div className="bookVolume-details">
-			<BookVolumeCard bookVolume={bookVolume}/>
-			<div className="card-title">
-			  <h2>Advanced <b><i>book</i></b> details</h2>
-			  <div className="card-title-illustration">
-				<img src={BookIcon} alt="book"/>
-			  </div>
+		  <BookVolumeCard bookVolume={bookVolume}/>
+		  <div className="card-title">
+			<h2>Advanced <b><i>book</i></b> details</h2>
+			<div className="card-title-illustration">
+			  <img src={BookIcon} alt="book"/>
 			</div>
+		  </div>
 		</div>
+		{renderCategories(bookVolume.volumeInfo?.categories[0])}
 	  </div>
 	} else return null
   }

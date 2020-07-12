@@ -2,8 +2,6 @@ import React from 'react';
 import './BookVolumeCard.scss';
 
 const BookVolumeCard = ({bookVolume}) => {
-  console.log(bookVolume, 'bookVolume');
-
   return <div className='book-volume-card'>
 	<div className="card-left">
 	  <div className="card-params">
@@ -18,7 +16,7 @@ const BookVolumeCard = ({bookVolume}) => {
 		  {bookVolume.volumeInfo.publishedDate}
 		</p>
 	  </div>
-	  {bookVolume.volumeInfo.industryIdentifiers.map((item, i) => {
+	  {bookVolume.volumeInfo.industryIdentifiers?.map((item, i) => {
 		return (
 		  <div key={i} className='card-params'>
 			<p>
@@ -35,7 +33,7 @@ const BookVolumeCard = ({bookVolume}) => {
 	  <div className="card-params">
 		<p>
 		  <b>Language</b>
-		  {bookVolume.volumeInfo.language}
+		  <span className='uppercase'>{bookVolume.volumeInfo.language}</span>
 		</p>
 	  </div>
 	  <div className="card-params">
