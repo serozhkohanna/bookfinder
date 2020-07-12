@@ -74,7 +74,7 @@ const BookVolume = ({bookVolume, setBookVolume}) => {
 	  return <div>
 		<div className="bookVolume-info">
 		  <div className="volume-img">
-			<img src={bookVolume.volumeInfo?.imageLinks?.thumbnail} alt="volume-img"/>
+			<img src={bookVolume.volumeInfo?.imageLinks?.thumbnail || noCoverImg} alt="volume-img"/>
 		  </div>
 		  <div className="volume-content">
 			<div className="volume-content-header">

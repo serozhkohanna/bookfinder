@@ -9,17 +9,17 @@ const Footer = () => {
   return <footer>
 	<ul className='social-block'>
 	  <li className='social-block-item'>
-		<a href="https://www.instagram.com/annat_s/?hl=en">
+		<a href="">
 		  <img src={InstagramIcon} alt="inst-icon"/>
 		</a>
 	  </li>
 	  <li className='social-block-item'>
-		<a href="https://dribbble.com/annat_s">
+		<a href="">
 		  <img src={DribbbleIcon} alt="dribble-icon"/>
 		</a>
 	  </li>
 	  <li className='social-block-item'>
-		<a href="https://github.com/serozhkohanna">
+		<a href="">
 		  <img src={GitHubIcon} alt="github-icon"/>
 		</a>
 	  </li>

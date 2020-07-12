@@ -19,7 +19,7 @@ const BookRequest = ({bookRequest}) => {
 	}
   }
 
-  return <section className="book-request">
+  return <section className="book-request" id='book-request'>
 	{renderRequestInfo()}
   </section>
 }
