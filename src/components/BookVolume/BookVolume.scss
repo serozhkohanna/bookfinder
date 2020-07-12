@@ -146,6 +146,28 @@
   }
 
   &-details {
+    display: flex;
 
+    .book-volume-card {
+      margin-right: 55px;
+    }
+
+    .card-title {
+      display: flex;
+      flex-direction: column;
+      padding: 10px 0;
+      max-width: 420px;
+
+      h2 {
+        font-family: $Merriweather-Regular;
+        letter-spacing: $ls-normal;
+        margin-bottom: 20px;
+      }
+
+      &-illustration {
+        display: flex;
+        justify-content: center;
+      }
+    }
   }
 }

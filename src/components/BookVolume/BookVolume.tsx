@@ -1,6 +1,9 @@
 import React from "react";
 import './BookVolume.scss';
 import { connect } from 'react-redux';
+import BookIcon from '../../assets/icons/book.svg';
+
+import BookVolumeCard from "../BookVolumeCard/BookVolumeCard";
 
 const BookVolume = ({bookVolume}) => {
   console.log(bookVolume);
@@ -85,7 +88,13 @@ const BookVolume = ({bookVolume}) => {
 		  </div>
 		</div>
 		<div className="bookVolume-details">
-
+			<BookVolumeCard bookVolume={bookVolume}/>
+			<div className="card-title">
+			  <h2>Advanced <b><i>book</i></b> details</h2>
+			  <div className="card-title-illustration">
+				<img src={BookIcon} alt="book"/>
+			  </div>
+			</div>
 		</div>
 	  </div>
 	} else return null

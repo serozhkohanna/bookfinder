@@ -1,0 +1,55 @@
+@import "src/assets/colors";
+@import "src/assets/variables";
+
+.book-volume-card {
+  width: 585px;
+  border-radius: $border-radius-base;
+  background: $sky-blue;
+  padding: 35px 25px;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+
+  .card-left,
+  .card-right,
+  .access-info {
+    display: flex;
+    flex-direction: column;
+
+    .card-params {
+      font-family: $WorkSans-Regular;
+      margin-bottom: 15px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      b {
+        font-family: $WorkSans-Semibold;
+        margin-right: 3px;
+      }
+    }
+  }
+
+  .card-left {
+    flex-grow: 1;
+    margin-bottom: 30px;
+    max-width: 70%;
+  }
+
+  .card-right {
+    flex-grow: 1;
+  }
+
+  .subtitle {
+    width: 100%;
+    font-size: 14px;
+    font-family: $WorkSans-Semibold;
+    color: $light-gray;
+    margin-bottom: 15px;
+  }
+
+  .access-info {
+    width: 100%;
+  }
+}
