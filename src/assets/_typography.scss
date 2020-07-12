@@ -2,6 +2,7 @@
 
 h2 {
   font-size: 48px;
+  font-weight: 400;
   @media (min-width: $laptop) {
     font-size: 64px;
   }
@@ -66,5 +67,12 @@ a {
     &:hover {
       background: $yellow;
     }
+  }
+}
+
+a {
+  &.link-red {
+    color: $orange;
+    text-transform: uppercase;
   }
 }

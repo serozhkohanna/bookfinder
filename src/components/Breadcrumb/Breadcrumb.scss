@@ -1,0 +1,36 @@
+@import "src/assets/colors";
+@import "src/assets/variables";
+
+.breadcrumb {
+  display: flex;
+  position: absolute;
+  top: 60px;
+
+  &-item {
+    position: relative;
+    padding-right: 35px;
+    font-family: $WorkSans-Regular;
+    color: $light-gray;
+    display: flex;
+    font-size: 12px;
+
+    a {
+      color: $deep-blue;
+      display: flex;
+    }
+
+    &:after {
+      content: '>';
+      position: absolute;
+      right: 15px;
+      top: 0;
+      color: $deep-blue;
+    }
+
+    &:last-child {
+      &:after {
+        content: none;
+      }
+    }
+  }
+}

@@ -21,10 +21,24 @@
     text-transform: capitalize;
   }
 
+  &.danger {
+    background: $orange;
+    color: $white;
+  }
+
+  &.info {
+    color: $deep-blue;
+    background: $yellow;
+  }
+
   &.is-large {
     max-width: 180px;
     width: 100%;
     height: 45px;
+  }
+
+  &.is-medium {
+    height: 35px;
   }
 
   &.is-small {

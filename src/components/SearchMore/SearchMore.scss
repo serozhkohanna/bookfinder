@@ -1,0 +1,25 @@
+@import "src/assets/colors";
+@import "src/assets/variables";
+
+.search-more {
+  font-size: 14px;
+  color: $light-gray;
+  font-family: $WorkSans-Semibold;
+  letter-spacing: $ls-small;
+  padding-right: 25px;
+  cursor: pointer;
+
+  &:after {
+    content: '>';
+    transition: $easing;
+    position: absolute;
+    right: 12px;
+  }
+
+  &:hover {
+    &:after {
+      right: 5px;
+      transition: $easing;
+    }
+  }
+}
