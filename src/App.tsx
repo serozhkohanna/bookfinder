@@ -1,8 +1,7 @@
 import React from 'react';
 import './App.scss';
 import { HOME_PAGE, SEARCH_PAGE, DETAILS_PAGE } from "./constants/routes";
-//@ts-ignore
-import { Switch, Route, withRouter } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 
 import MainPage from "./pages/MainPage/MainPage";
 import SearchPage from "./pages/SearchPage/SearchPage";
