@@ -2,7 +2,7 @@ import React from 'react';
 import './Header.scss';
 import { HOME_PAGE, SEARCH_PAGE } from "../../constants/routes";
 import SearchKeywords from "../SearchKeywords/SearchKeywords";
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 
 import Favourites from "../FavouritesButton/FavouritesButton";
 
@@ -16,7 +16,7 @@ const Header = ({pageHeader}: any) => {
   window.addEventListener('scroll', handlePageScroll);
 
   return <header ref={(header) => pageHeader = header}>
-	<h1>BookFinder</h1>
+	<h1><Link to={HOME_PAGE}>BookFinder</Link></h1>
 	<ul className='navigation'>
 	  <li className='navigation-item hide-mobile'>
 		<NavLink activeClassName='navigation-item-active' to={HOME_PAGE}>Home</NavLink>
