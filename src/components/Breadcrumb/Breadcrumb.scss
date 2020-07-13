@@ -4,7 +4,12 @@
 .breadcrumb {
   display: flex;
   position: absolute;
-  top: 60px;
+  top: 40px;
+  width: 95%;
+  overflow-x: scroll;
+  @media (min-width: $tablet) {
+    top: 60px;
+  }
 
   &-item {
     position: relative;
@@ -13,6 +18,7 @@
     color: $light-gray;
     display: flex;
     font-size: 12px;
+    white-space: nowrap;
 
     a {
       color: $deep-blue;

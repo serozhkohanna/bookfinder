@@ -2,15 +2,31 @@
 @import "src/assets/variables";
 
 .bookVolume {
-  margin-bottom: 85px;
+  margin-bottom: 50px;
+  @media (min-width: $tablet) {
+    margin-bottom: 85px;
+  }
 
   &-info {
-    margin-bottom: 80px;
+    margin-bottom: 30px;
     display: flex;
+    @media (min-width: $tablet) {
+      margin-bottom: 50px;
+    }
+    @media (min-width: $laptop) {
+      margin-bottom: 80px;
+    }
 
     .volume-img {
       width: 375px;
-      margin-right: 40px;
+      margin-right: 20px;
+      display: none;
+      @media (min-width: $tablet) {
+        display: block;
+      }
+      @media (min-width: $laptop) {
+        margin-right: 40px;
+      }
 
       img {
         width: 100%;
@@ -25,7 +41,12 @@
         display: flex;
         flex-direction: column;
         position: relative;
-        padding-right: 250px;
+        @media (min-width: $tablet) {
+          padding-right: 200px;
+        }
+        @media (min-width: $laptop) {
+          padding-right: 250px;
+        }
 
         .title {
           margin-bottom: 10px;
@@ -47,6 +68,12 @@
         }
 
         .rating {
+          display: flex;
+          justify-content: center;
+          @media (min-width: $tablet) {
+            justify-content: flex-start;
+          }
+
           .star {
             margin-right: 3px;
 
@@ -62,7 +89,11 @@
           font-size: 11px;
           width: 85px;
           text-align: center;
-          margin-bottom: 20px;
+          margin: 0 auto 20px;
+          @media (min-width: $tablet) {
+            margin-right: 0;
+            margin-left: 0;
+          }
 
           span {
             margin-right: 3px;
@@ -70,10 +101,14 @@
         }
 
         .labels {
-          position: absolute;
-          right: 0;
           display: flex;
           align-items: center;
+          justify-content: flex-end;
+          @media (min-width: $tablet) {
+            position: absolute;
+            right: 0;
+            justify-content: flex-start;
+          }
 
           .bookmark {
             margin-right: 20px;
@@ -85,12 +120,23 @@
 
           .buttons {
             display: flex;
-            flex-direction: column;
+            @media (min-width: $tablet) {
+              flex-direction: column;
+            }
 
             .button {
               min-width: 125px;
               padding: 0 20px;
               margin-bottom: 10px;
+              margin-right: 10px;
+
+              &:last-child {
+                margin-right: 0;
+              }
+
+              @media (min-width: $tablet) {
+                margin-right: 0;
+              }
 
               &.info {
                 width: 100px;
@@ -147,10 +193,20 @@
 
   &-details {
     display: flex;
-    margin-bottom: 80px;
+    margin-bottom: 50px;
+    flex-direction: column;
+    @media (min-width: $tablet) {
+      flex-direction: row;
+    }
+    @media (min-width: $laptop) {
+      margin-bottom: 80px;
+    }
 
     .book-volume-card {
-      margin-right: 55px;
+      margin-right: 35px;
+      @media (min-width: $laptop) {
+        margin-right: 55px;
+      }
     }
 
     .card-title {
@@ -158,16 +214,43 @@
       flex-direction: column;
       padding: 10px 0;
       max-width: 420px;
+      order: -1;
+      @media (min-width: $tablet) {
+        order: 0;
+      }
 
       h2 {
         font-family: $Merriweather-Regular;
         letter-spacing: $ls-normal;
         margin-bottom: 20px;
+        font-size: 24px;
+        @media (min-width: $tablet) {
+          font-size: 36px;
+        }
+        @media (min-width: $laptop) {
+          font-size: 48px;
+        }
+        @media (min-width: $desktop) {
+          font-size: 64px;
+        }
       }
 
       &-illustration {
         display: flex;
-        justify-content: center;
+        margin-bottom: 20px;
+        @media (min-width: $tablet) {
+          margin-bottom: 0;
+        }
+        @media (min-width: $desktop) {
+          justify-content: center;
+        }
+
+        img {
+          width: 200px;
+          @media (min-width: $tablet) {
+            width: 100%;
+          }
+        }
       }
     }
   }
@@ -177,34 +260,59 @@
     flex-direction: column;
 
     &-header {
-      margin-bottom: 50px;
+      margin-bottom: 30px;
       position: relative;
+      @media (min-width: $tablet) {
+        margin-bottom: 50px;
+      }
 
       h4 {
         font-family: $Merriweather-Regular;
+        margin-bottom: 10px;
+        font-size: 24px;
+        @media (min-width: $tablet) {
+          margin-bottom: 0;
+          font-size: 36px;
+        }
       }
 
       .search-more {
-        position: absolute;
+        position: relative;
         right: 0;
         top: 40%;
+        @media (min-width: $tablet) {
+          position: absolute;
+        }
       }
     }
 
     &-body {
       display: flex;
-      flex-wrap: nowrap;
+      flex-wrap: wrap;
+      @media (min-width: $tablet) {
+        flex-wrap: nowrap;
+      }
 
       .body-item {
         width: 100%;
         display: flex;
         flex-direction: column;
-        padding: 0 20px;
-        max-width: 25%;
-        min-width: 25%;
+        padding: 0 10px;
+        max-width: 50%;
+        min-width: 50%;
         transform: scaleX(1);
         transition: $easing;
         box-shadow: none;
+        margin-bottom: 20px;
+        @media (min-width: $tablet) {
+          max-width: 25%;
+          min-width: 25%;
+          margin-bottom: 0;
+        }
+        @media (min-width: $laptop) {
+          padding: 0 20px;
+        }
+
 
         &:hover {
           .img-wrapper {
@@ -215,13 +323,16 @@
         }
 
         .img-wrapper {
-          height: 330px;
+          height: 250px;
           width: auto;
           display: flex;
           justify-content: center;
           margin-bottom: 15px;
           border-radius: $border-radius-base;
           overflow: hidden;
+          @media (min-width: $laptop) {
+            height: 330px;
+          }
 
           img {
             height: 100%;

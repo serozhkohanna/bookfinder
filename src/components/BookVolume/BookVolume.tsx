@@ -46,7 +46,7 @@ const BookVolume = ({bookVolume, setBookVolume}) => {
 			{item.volumeInfo.title}
 		  </div>
 		  <div className="item-author">
-			{item.volumeInfo.authors[0]}
+			{item.volumeInfo.authors && item.volumeInfo.authors[0]}
 		  </div>
 		</div>
 	  })

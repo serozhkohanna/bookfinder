@@ -1,6 +1,12 @@
+@import "src/assets/colors";
+@import "src/assets/variables";
+
 main {
   &#details-page {
     position: relative;
-    padding-top: 125px;
+    padding-top: 90px;
+    @media (min-width: $tablet) {
+      padding-top: 125px;
+    }
   }
 }

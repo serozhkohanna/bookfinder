@@ -12,9 +12,12 @@
     justify-content: space-between;
 
     .books-count {
-      font-size: 14px;
+      font-size: 12px;
       font-family: $WorkSans-Semibold;
       color: $light-gray;
+      @media (min-width: $tablet) {
+        font-size: 14px;
+      }
     }
   }
 
@@ -32,13 +35,14 @@
       @media (min-width: $laptop) {
         margin: 0 30px;
       }
-      //height: 1000px;
     }
   }
 
   &-footer {
-    padding-left: 180px;
-    margin: 0 30px 0 20px;
+    @media (min-width: $tablet) {
+      padding-left: 180px;
+      margin: 0 30px 0 20px;
+    }
 
     .pagination {
       margin-bottom: 70px;
