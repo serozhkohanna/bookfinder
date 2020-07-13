@@ -5,12 +5,18 @@
   margin-bottom: 85px;
 
   &-info {
-    margin-bottom: 80px;
+    margin-bottom: 50px;
     display: flex;
+    @media (min-width: $laptop) {
+      margin-bottom: 80px;
+    }
 
     .volume-img {
       width: 375px;
-      margin-right: 40px;
+      margin-right: 20px;
+      @media (min-width: $laptop) {
+        margin-right: 40px;
+      }
 
       img {
         width: 100%;
@@ -25,7 +31,10 @@
         display: flex;
         flex-direction: column;
         position: relative;
-        padding-right: 250px;
+        padding-right: 200px;
+        @media (min-width: $laptop) {
+          padding-right: 250px;
+        }
 
         .title {
           margin-bottom: 10px;
@@ -147,10 +156,16 @@
 
   &-details {
     display: flex;
-    margin-bottom: 80px;
+    margin-bottom: 50px;
+    @media (min-width: $laptop) {
+      margin-bottom: 80px;
+    }
 
     .book-volume-card {
-      margin-right: 55px;
+      margin-right: 35px;
+      @media (min-width: $laptop) {
+        margin-right: 55px;
+      }
     }
 
     .card-title {
@@ -163,11 +178,20 @@
         font-family: $Merriweather-Regular;
         letter-spacing: $ls-normal;
         margin-bottom: 20px;
+        font-size: 36px;
+        @media (min-width: $laptop) {
+          font-size: 48px;
+        }
+        @media (min-width: $desktop) {
+          font-size: 64px;
+        }
       }
 
       &-illustration {
         display: flex;
-        justify-content: center;
+        @media (min-width: $desktop) {
+          justify-content: center;
+        }
       }
     }
   }
@@ -199,12 +223,16 @@
         width: 100%;
         display: flex;
         flex-direction: column;
-        padding: 0 20px;
+        padding: 0 10px;
         max-width: 25%;
         min-width: 25%;
         transform: scaleX(1);
         transition: $easing;
         box-shadow: none;
+        @media (min-width: $laptop) {
+          padding: 0 20px;
+        }
+
 
         &:hover {
           .img-wrapper {
@@ -215,13 +243,16 @@
         }
 
         .img-wrapper {
-          height: 330px;
+          height: 250px;
           width: auto;
           display: flex;
           justify-content: center;
           margin-bottom: 15px;
           border-radius: $border-radius-base;
           overflow: hidden;
+          @media (min-width: $laptop) {
+            height: 330px;
+          }
 
           img {
             height: 100%;
