@@ -3,4 +3,35 @@
 
 .modal-saved {
   width: 700px;
+  padding: 50px 40px 25px;
+  border-radius: $border-radius-base;
+
+  .modal-header {
+    margin-bottom: 40px;
+    display: flex;
+
+    &-content {
+      display: flex;
+      flex-direction: column;
+
+      .modal-title {
+        font-family: $Merriweather-Regular;
+
+        h2 {
+          line-height: 1.3;
+        }
+      }
+    }
+
+    &-img {
+      width: 260px;
+      background: url("../../assets/img/saved-books.svg") no-repeat;
+      background-size: contain;
+      background-position-x: right;
+    }
+  }
+
+  .modal-body {
+    margin-bottom: 60px;
+  }
 }
