@@ -23,7 +23,7 @@ const BookItemList = ({bookItem, sendCallback}) => {
 		  {bookItem.volumeInfo.authors?.map((item, i) => <p key={i}>{item}</p>)}
 		</div>
 		<div className="labels">
-		  <Bookmark/>
+		  <Bookmark id={bookItem.id} />
 		  {bookItem.volumeInfo?.categories && <button className="button secondary is-small">
 			{bookItem.volumeInfo?.categories[0]}
           </button>}

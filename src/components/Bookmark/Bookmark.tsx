@@ -1,14 +1,36 @@
-import React from 'react';
+import React, { FC } from 'react';
 import './Bookmark.scss';
+import { connect } from 'react-redux';
 
-const Bookmark = () => {
-  return <button className="bookmark">
+import { setSaved } from "../../actions/actions";
+
+interface Props {
+  id: string;
+  savedBooks: Array<string>,
+  setSaved: any
+}
+
+const Bookmark: FC<Props> = ({id, savedBooks, setSaved}) => {
+  const handleSaved = () => {
+	setSaved(id);
+  }
+
+  return <button className={`bookmark ${savedBooks.includes(id) && 'is-active'}`} onClick={handleSaved}>
 	<svg width="15" height="20" viewBox="0 0 15 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-	  <path
-		d="M13.7072 0H0.494386C0.221509 0 5.38937e-07 0.221315 5.38937e-07 0.494386V19.0105C-0.000385675 19.3815 0.206831 19.7214 0.536679 19.8909C0.866721 20.0603 1.26377 20.0307 1.56485 19.8143L7.10081 15.8458L12.637 19.8141C12.9382 20.0302 13.3349 20.0595 13.6647 19.8901C13.9944 19.7208 14.2018 19.3811 14.2018 19.0105V0.494386C14.2018 0.221315 13.9803 0 13.7072 0ZM13.2128 19.0103L7.38914 14.8356C7.21687 14.7122 6.98513 14.7122 6.81306 14.8356L0.989158 19.0105V0.988772H13.2128V19.0103Z"
-		fill="#0E084B"/>
+	  <path d="M7.80237 13.9069L7.5 13.6773L7.19763 13.9069L0.5 18.9925V0.5H14.5V18.9925L7.80237 13.9069Z"
+			fill="transparent" stroke="#0E084B"/>
 	</svg>
   </button>
 }
 
-export default Bookmark;
+const mapStateToProps = ({savedBooks}) => {
+  return {
+	savedBooks: savedBooks.savedBooks
+  }
+}
+
+const mapDispatchToProps = {
+  setSaved
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Bookmark);
