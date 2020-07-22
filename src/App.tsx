@@ -10,11 +10,13 @@ import DetailsPage from "./pages/DetailsPage/DetailsPage";
 
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
+import ModalSaved from "./components/ModalSaved/ModalSaved";
 
 function App() {
   return (
 	<div className="page">
 	  <Header/>
+	  <ModalSaved/>
 	  <div className="page-content">
 		<Switch>
 		  <Route exact path={HOME_PAGE} component={MainPage}/>

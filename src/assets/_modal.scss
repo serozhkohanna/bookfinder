@@ -1,0 +1,43 @@
+@import "variables";
+@import "typography";
+
+.modal-wrapper {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: $light-blue;
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+  display: none;
+
+  &.isOpen {
+    display: flex;
+  }
+
+  .modal {
+    background: $white;
+  }
+
+  .modal-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 15px;
+    border-radius: 50%;
+    background: rgba($white, .5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+    &:hover {
+      background: rgba($white, .7);
+    }
+
+    svg {
+      width: 10px;
+      height: 10px;
+    }
+  }
+}
