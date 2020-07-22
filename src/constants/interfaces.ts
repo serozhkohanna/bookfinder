@@ -25,3 +25,7 @@ export interface SearchParams {
 export interface Application {
   isSidebarOpen: boolean;
 }
+
+export interface SavedBooks {
+  savedBooks: object[];
+}
