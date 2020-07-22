@@ -1,4 +1,4 @@
-import { SET_BOOKS, SET_ADVANCED_REQUEST, SET_BOOK_VOLUME } from "../constants/action-types";
+import { SET_BOOKS, SET_ADVANCED_REQUEST, SET_BOOK_VOLUME, SET_SIDEBAR } from "../constants/action-types";
 import { apiKey, apiURL } from "../constants/googleApi";
 
 import axios from 'axios';
@@ -38,5 +38,10 @@ export const setAdvancedRequest = payload => ({
 
 export const setBookVolume = payload => ({
   type: SET_BOOK_VOLUME,
+  payload
+})
+
+export const setSidebar = payload => ({
+  type: SET_SIDEBAR,
   payload
 })

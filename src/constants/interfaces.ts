@@ -21,3 +21,7 @@ export interface SearchParams {
   keywords?: string[];
   printType?: string[];
 }
+
+export interface Application {
+  isSidebarOpen: boolean;
+}
