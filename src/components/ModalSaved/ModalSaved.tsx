@@ -5,6 +5,8 @@ import { connect } from 'react-redux';
 import { setSidebar } from "../../actions/actions";
 
 import NoContentItem from '../../assets/img/nocover.png';
+import NoSavedIcon from '../../assets/img/nosaved.png';
+
 import { SEARCH_PAGE } from "../../constants/routes";
 
 import { setBookVolume } from "../../actions/actions";
@@ -31,37 +33,47 @@ const ModalSaved = ({setSidebar, isSidebarOpen, savedBooks, setBookVolume}) => {
 	})
 
 	const renderTemplate = (books) => {
-	  return books.map((item, i) => {
-		return <div key={i} className='saved-card'>
-		  <div className="saved-card-img">
-			<img src={item.volumeInfo?.imageLinks?.thumbnail || NoContentItem} alt="saved-item-img"/>
+	  if (books.length > 0) {
+		return books.map((item, i) => {
+		  return <div key={i} className='saved-card'>
+			<div className="saved-card-img">
+			  <img src={item.volumeInfo?.imageLinks?.thumbnail || NoContentItem} alt="saved-item-img"/>
+			</div>
+			<div className="saved-card-content">
+			  <div className="saved-title">
+				{item.volumeInfo.title}
+			  </div>
+			  <div className="saved-author">
+				{item.volumeInfo.authors?.map((item, i) => {
+				  return <p key={i}>{item}</p>
+				})}
+			  </div>
+			  <div className="saved-category">
+				<button
+				  className="button danger is-small">{item.volumeInfo.categories && item.volumeInfo.categories[0]}</button>
+			  </div>
+			  <div className="saved-params">
+				{item.accessInfo?.epub?.isAvailable || item.accessInfo?.pdf?.isAvailable &&
+								<div
+									className="param-item">Formats: <span>{item.accessInfo?.epub?.isAvailable ? 'epub' : ''}</span><span>{item.accessInfo?.pdf?.isAvailable ? 'pdf' : ''}</span>
+								</div>}
+				<div className="param-item">Pages: <span>{item.volumeInfo.pageCount}</span></div>
+			  </div>
+			  <a className="show-more" onClick={() => handleMoreClick(item)}>
+				Show more
+			  </a>
+			</div>
 		  </div>
-		  <div className="saved-card-content">
-			<div className="saved-title">
-			  {item.volumeInfo.title}
-			</div>
-			<div className="saved-author">
-			  {item.volumeInfo.authors?.map((item, i) => {
-				return <p key={i}>{item}</p>
-			  })}
-			</div>
-			<div className="saved-category">
-			  <button
-				className="button danger is-small">{item.volumeInfo.categories && item.volumeInfo.categories[0]}</button>
-			</div>
-			<div className="saved-params">
-			  {item.accessInfo?.epub?.isAvailable || item.accessInfo?.pdf?.isAvailable &&
-							<div
-								className="param-item">Formats: <span>{item.accessInfo?.epub?.isAvailable ? 'epub' : ''}</span><span>{item.accessInfo?.pdf?.isAvailable ? 'pdf' : ''}</span>
-							</div>}
-			  <div className="param-item">Pages: <span>{item.volumeInfo.pageCount}</span></div>
-			</div>
-			<a className="show-more" onClick={() => handleMoreClick(item)}>
-			  Show more
-			</a>
-		  </div>
+		})
+	  } else return <div className='no-content'>
+		<div className="no-title">
+		  <h3>No saved books</h3>
 		</div>
-	  })
+		<div className="img-wrapper">
+		  <img src={NoSavedIcon} alt="emty-content"/>
+		</div>
+		<button className="button secondary is-large">GET STARTEG</button>
+	  </div>
 	}
 
 	const handleMoreClick = (item) => {
@@ -111,9 +123,9 @@ const ModalSaved = ({setSidebar, isSidebarOpen, savedBooks, setBookVolume}) => {
 	  <div className="modal-body">
 		{renderTabContent()}
 	  </div>
-	  <div className="modal-footer">
+	  {savedBooks?.length > 0 && <div className="modal-footer">
 		<p>{savedBooks?.length} books saved</p>
-	  </div>
+	  </div>}
 	  <button className="modal-close" onClick={handleSidebar}>
 		<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
 		  <path
