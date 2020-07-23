@@ -5,6 +5,8 @@
   width: 700px;
   padding: 50px 40px 25px;
   border-radius: $border-radius-base;
+  max-height: 550px;
+  overflow: auto;
 
   .modal-header {
     margin-bottom: 40px;
@@ -27,8 +29,26 @@
         &-names {
           display: flex;
 
-          li {
+          .tab-item {
             margin-right: 25px;
+            color: $light-gray;
+            font-family: $WorkSans-Semibold;
+            position: relative;
+            padding-bottom: 12px;
+
+            &.is-active {
+              color: $deep-blue;
+
+              &:before {
+                content: '';
+                background: url("../../assets/icons/curveline.svg") no-repeat center;
+                background-size: contain;
+                position: absolute;
+                bottom: 0;
+                width: 100%;
+                height: 15px;
+              }
+            }
 
             &:last-child {
               margin-right: 0;
@@ -47,6 +67,112 @@
   }
 
   .modal-body {
-    margin-bottom: 60px;
+    //margin-bottom: 60px;
+
+    &-content {
+      position: relative;
+
+      .tab-content {
+        display: none;
+
+        .saved-card {
+          max-height: 180px;
+          margin-bottom: 20px;
+          box-shadow: $box-shadow-medium;
+          display: flex;
+
+          &-img {
+            max-height: 180px;
+            height: 100%;
+            display: flex;
+            margin-right: 30px;
+          }
+
+          &-content {
+            display: flex;
+            flex-direction: column;
+            padding: 15px 30px 15px 0;
+            width: 100%;
+
+            .saved-title {
+              white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              max-width: 400px;
+              width: 100%;
+              font-family: $WorkSans-Semibold;
+              font-size: 16px;
+            }
+
+            .saved-author {
+              display: flex;
+              font-family: $WorkSans-Semibold;
+              color: $light-gray;
+              margin-bottom: 5px;
+
+              p {
+                margin-right: 5px;
+                font-size: 12px;
+              }
+            }
+
+            .saved-category {
+              margin-bottom: 10px;
+
+              .button {
+                min-width: 100px;
+                padding: 0 20px;
+              }
+            }
+
+            .saved-params {
+              .param-item {
+                font-size: 12px;
+                font-family: $WorkSans-Semibold;
+                color: $light-gray;
+                margin-bottom: 5px;
+
+                &:last-child {
+                  margin-bottom: 0;
+                }
+
+                span {
+                  color: $deep-blue;
+                }
+              }
+            }
+
+            .show-more {
+              align-self: flex-end;
+              font-size: 12px;
+              font-family: $WorkSans-Regular;
+              letter-spacing: $ls-small;
+              color: $blue;
+              position: relative;
+              padding-right: 20px;
+              cursor: pointer;
+
+              &:after {
+                content: url('../../assets/icons/arrow-right.svg');
+                position: absolute;
+                right: 5px;
+                transition: $easing;
+              }
+
+              &:hover {
+                &:after {
+                  right: 0;
+                  transition: $easing;
+                }
+              }
+            }
+          }
+        }
+
+        &.is-active {
+          display: block;
+        }
+      }
+    }
   }
 }
