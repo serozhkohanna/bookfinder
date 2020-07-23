@@ -1,10 +1,21 @@
 import React from 'react';
 import HeartIcon from '../../assets/icons/heart.png';
+import { connect } from 'react-redux';
+import { setSidebar } from "../../actions/actions";
+import './FavouritesButton.scss'
 
-const FavouritesButton = () => {
-  return <button className='favourite-icon'>
+const FavouritesButton = ({setSidebar}) => {
+  const handleSidebar = () => {
+	setSidebar(true);
+  }
+
+  return <button className='favourite-icon' onClick={handleSidebar}>
 	<img src={HeartIcon} alt="favourites"/>
   </button>
 }
 
-export default FavouritesButton;
+const mapDispatchToProps = {
+  setSidebar
+}
+
+export default connect(null, mapDispatchToProps)(FavouritesButton);

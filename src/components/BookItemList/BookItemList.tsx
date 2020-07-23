@@ -2,7 +2,7 @@ import React from 'react';
 
 import './BookItemList.scss';
 import noCoverImg from '../../assets/img/nocover.png';
-
+import Bookmark from "../Bookmark/Bookmark";
 
 const BookItemList = ({bookItem, sendCallback}) => {
   const handleMoreClick = () => {
@@ -22,13 +22,7 @@ const BookItemList = ({bookItem, sendCallback}) => {
 		  {bookItem.volumeInfo.authors?.map((item, i) => <p key={i}>{item}</p>)}
 		</div>
 		<div className="labels">
-		  <div className="bookmark">
-			<svg width="15" height="20" viewBox="0 0 15 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-			  <path
-				d="M13.7072 0H0.494386C0.221509 0 5.38937e-07 0.221315 5.38937e-07 0.494386V19.0105C-0.000385675 19.3815 0.206831 19.7214 0.536679 19.8909C0.866721 20.0603 1.26377 20.0307 1.56485 19.8143L7.10081 15.8458L12.637 19.8141C12.9382 20.0302 13.3349 20.0595 13.6647 19.8901C13.9944 19.7208 14.2018 19.3811 14.2018 19.0105V0.494386C14.2018 0.221315 13.9803 0 13.7072 0ZM13.2128 19.0103L7.38914 14.8356C7.21687 14.7122 6.98513 14.7122 6.81306 14.8356L0.989158 19.0105V0.988772H13.2128V19.0103Z"
-				fill="#0E084B"/>
-			</svg>
-		  </div>
+		  <Bookmark bookVolume={bookItem} />
 		  {bookItem.volumeInfo?.categories && <button className="button secondary is-small">
 			{bookItem.volumeInfo?.categories[0]}
           </button>}

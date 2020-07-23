@@ -1,0 +1,15 @@
+@import "src/assets/colors";
+@import "src/assets/variables";
+
+.bookmark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  &.is-active {
+    * {
+      fill: $deep-blue;
+    }
+  }
+}

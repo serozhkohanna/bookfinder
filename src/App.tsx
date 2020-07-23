@@ -1,8 +1,7 @@
 import React from 'react';
 import './App.scss';
 import { HOME_PAGE, SEARCH_PAGE, DETAILS_PAGE } from "./constants/routes";
-//@ts-ignore
-import { Switch, Route, withRouter } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 
 import MainPage from "./pages/MainPage/MainPage";
 import SearchPage from "./pages/SearchPage/SearchPage";
@@ -11,11 +10,13 @@ import DetailsPage from "./pages/DetailsPage/DetailsPage";
 
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
+import ModalSaved from "./components/ModalSaved/ModalSaved";
 
 function App() {
   return (
 	<div className="page">
 	  <Header/>
+	  <ModalSaved/>
 	  <div className="page-content">
 		<Switch>
 		  <Route exact path={HOME_PAGE} component={MainPage}/>

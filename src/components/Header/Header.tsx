@@ -22,7 +22,7 @@ const Header = ({pageHeader}: any) => {
 		<NavLink activeClassName='navigation-item-active' to={HOME_PAGE}>Home</NavLink>
 	  </li>
 	  <li className='navigation-item'>
-		<NavLink activeClassName='navigation-item-active' to={SEARCH_PAGE}>My bookshelf</NavLink>
+		<NavLink activeClassName='navigation-item-active' to={HOME_PAGE}>My bookshelf</NavLink>
 	  </li>
 	  <li className='navigation-item'>
 		<Favourites/>

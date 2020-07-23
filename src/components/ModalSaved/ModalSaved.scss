@@ -1,0 +1,242 @@
+@import "src/assets/colors";
+@import "src/assets/variables";
+
+.modal-saved {
+  width: 100%;
+  padding: 30px 20px 40px;
+  height: 100vh;
+  overflow: auto;
+  @media (min-width: $tablet) {
+    width: 700px;
+    max-height: 550px;
+    height: 100%;
+    border-radius: $border-radius-base;
+    padding: 50px 40px 25px;
+  }
+
+  .modal-header {
+    margin-bottom: 40px;
+    display: flex;
+
+    &-content {
+      display: flex;
+      flex-direction: column;
+
+      .modal-title {
+        font-family: $Merriweather-Regular;
+        margin-bottom: 15px;
+        max-width: 70%;
+
+        @media (min-width: $tablet) {
+          max-width: 100%;
+        }
+
+        h2 {
+          line-height: 1.2;
+        }
+      }
+
+      .modal-tabs {
+        &-names {
+          display: flex;
+
+          .tab-item {
+            margin-right: 25px;
+            color: $light-gray;
+            font-family: $WorkSans-Semibold;
+            position: relative;
+            padding-bottom: 12px;
+
+            &.is-active {
+              color: $deep-blue;
+
+              &:before {
+                content: '';
+                background: url("../../assets/icons/curveline.svg") no-repeat center;
+                background-size: contain;
+                position: absolute;
+                bottom: 0;
+                width: 100%;
+                height: 15px;
+              }
+            }
+
+            &:last-child {
+              margin-right: 0;
+            }
+          }
+        }
+      }
+    }
+
+    &-img {
+      background: url("../../assets/img/saved-books.svg") no-repeat;
+      background-size: contain;
+      position: absolute;
+      right: 20px;
+      top: 30px;
+      width: 150px;
+      height: 150px;
+      background-position-x: right;
+
+      @media (min-width: $tablet) {
+        width: 260px;
+        height: auto;
+        position: static;
+      }
+    }
+  }
+
+  .modal-body {
+    //margin-bottom: 60px;
+    @media (min-width: $tablet) {
+      padding: 0 10px;
+    }
+
+    &-content {
+      position: relative;
+
+      .tab-content {
+        display: none;
+
+        .saved-card {
+          margin-bottom: 25px;
+          box-shadow: $box-shadow-small;
+          display: flex;
+          border-radius: $border-radius-base;
+          overflow: hidden;
+          flex-direction: column;
+          @media (min-width: $tablet) {
+            flex-direction: row;
+            max-height: 160px;
+
+            &:hover {
+              box-shadow: $box-shadow-medium;
+              transform: scaleX(1.03);
+              transition: $easing;
+            }
+          }
+
+          &-img {
+            max-height: 160px;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            @media (min-width: $tablet) {
+              margin-right: 30px;
+            }
+          }
+
+          &-content {
+            display: flex;
+            flex-direction: column;
+            padding: 20px 15px;
+            width: 100%;
+            @media (min-width: $tablet) {
+              padding: 15px 30px 15px 0;
+            }
+
+            .saved-title {
+              overflow: hidden;
+              text-overflow: ellipsis;
+              max-width: 100%;
+              width: 100%;
+              font-family: $WorkSans-Semibold;
+              font-size: 16px;
+              margin-bottom: 5px;
+              @media (min-width: $tablet) {
+                max-width: 330px;
+                white-space: nowrap;
+              }
+            }
+
+            .saved-author {
+              display: flex;
+              font-family: $WorkSans-Semibold;
+              color: $light-gray;
+              margin-bottom: 10px;
+
+              p {
+                margin-right: 5px;
+                font-size: 12px;
+
+                &:last-child {
+                  margin-right: 0;
+                }
+              }
+            }
+
+            .saved-category {
+              margin-bottom: 15px;
+              @media (min-width: $tablet) {
+                position: absolute;
+                right: 20px;
+              }
+
+              .button {
+                min-width: 100px;
+                padding: 0 20px;
+              }
+            }
+
+            .saved-params {
+              .param-item {
+                font-size: 12px;
+                font-family: $WorkSans-Semibold;
+                color: $light-gray;
+                margin-bottom: 5px;
+
+                &:last-child {
+                  margin-bottom: 0;
+                }
+
+                span {
+                  color: $deep-blue;
+                }
+              }
+            }
+
+            .show-more {
+              align-self: flex-end;
+              font-size: 12px;
+              font-family: $WorkSans-Regular;
+              letter-spacing: $ls-small;
+              color: $blue;
+              position: relative;
+              padding-right: 20px;
+              cursor: pointer;
+              margin-top: auto;
+
+              &:after {
+                content: url('../../assets/icons/arrow-right.svg');
+                position: absolute;
+                right: 5px;
+                transition: $easing;
+              }
+
+              &:hover {
+                &:after {
+                  right: 0;
+                  transition: $easing;
+                }
+              }
+            }
+          }
+        }
+
+        &.is-active {
+          display: block;
+        }
+      }
+    }
+  }
+
+  .modal-footer {
+    font-family: $WorkSans-Semibold;
+    color: $light-gray;
+    font-size: 12px;
+    @media (min-width: $tablet) {
+      padding: 0 10px;
+    }
+  }
+}
