@@ -100,7 +100,7 @@ const ModalSaved = ({setSidebar, isSidebarOpen, savedBooks, setBookVolume}) => {
 		{renderTabContent()}
 	  </div>
 	  <div className="modal-footer">
-		12 item saved
+		<p>{savedBooks?.length} books saved</p>
 	  </div>
 	  <button className="modal-close" onClick={handleSidebar}>
 		<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">

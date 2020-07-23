@@ -68,6 +68,7 @@
 
   .modal-body {
     //margin-bottom: 60px;
+    padding: 0 10px;
 
     &-content {
       position: relative;
@@ -76,13 +77,22 @@
         display: none;
 
         .saved-card {
-          max-height: 180px;
-          margin-bottom: 20px;
-          box-shadow: $box-shadow-medium;
+          max-height: 160px;
+          margin-bottom: 25px;
+          box-shadow: $box-shadow-small;
           display: flex;
+          border-radius: $border-radius-base;
+          overflow: hidden;
+          @media (min-width: $tablet) {
+            &:hover {
+              box-shadow: $box-shadow-medium;
+              transform: scaleX(1.03);
+              transition: $easing;
+            }
+          }
 
           &-img {
-            max-height: 180px;
+            max-height: 160px;
             height: 100%;
             display: flex;
             margin-right: 30px;
@@ -98,17 +108,18 @@
               white-space: nowrap;
               overflow: hidden;
               text-overflow: ellipsis;
-              max-width: 400px;
+              max-width: 330px;
               width: 100%;
               font-family: $WorkSans-Semibold;
               font-size: 16px;
+              margin-bottom: 5px;
             }
 
             .saved-author {
               display: flex;
               font-family: $WorkSans-Semibold;
               color: $light-gray;
-              margin-bottom: 5px;
+              margin-bottom: 10px;
 
               p {
                 margin-right: 5px;
@@ -117,7 +128,9 @@
             }
 
             .saved-category {
-              margin-bottom: 10px;
+              margin-bottom: 15px;
+              position: absolute;
+              right: 20px;
 
               .button {
                 min-width: 100px;
@@ -151,6 +164,7 @@
               position: relative;
               padding-right: 20px;
               cursor: pointer;
+              margin-top: auto;
 
               &:after {
                 content: url('../../assets/icons/arrow-right.svg');
@@ -174,5 +188,12 @@
         }
       }
     }
+  }
+
+  .modal-footer {
+    padding: 0 10px;
+    font-family: $WorkSans-Semibold;
+    color: $light-gray;
+    font-size: 12px;
   }
 }
