@@ -104,7 +104,7 @@ const BookVolume = ({bookVolume, setBookVolume}) => {
 				</p>
 			  </div>
 			  <div className="labels">
-				<Bookmark id={bookVolume.id}/>
+				<Bookmark bookVolume={bookVolume}/>
 				<div className="buttons">
 				  {bookVolume.volumeInfo?.categories && <button className="button danger is-medium">
 					{bookVolume.volumeInfo?.categories[0]}

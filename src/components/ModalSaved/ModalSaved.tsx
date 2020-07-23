@@ -3,7 +3,7 @@ import './ModalSaved.scss';
 import { connect } from 'react-redux';
 import { setSidebar } from "../../actions/actions";
 
-const ModalSaved = ({setSidebar, isSidebarOpen}) => {
+const ModalSaved = ({setSidebar, isSidebarOpen, savedBooks}) => {
   const handleSidebar = () => {
 	setSidebar(false);
   }
@@ -19,7 +19,11 @@ const ModalSaved = ({setSidebar, isSidebarOpen}) => {
 			</h2>
 		  </div>
 		  <div className="modal-tabs">
-			content
+			<ul className="modal-tabs-names">
+			  <li className="tab-item" id='tab-item1'>All content</li>
+			  <li className="tab-item" id='tab-item2'>Books</li>
+			  <li className="tab-item" id='tab-item3'>Magazines</li>
+			</ul>
 		  </div>
 		</div>
 		<div className="modal-header-img">
@@ -41,9 +45,10 @@ const ModalSaved = ({setSidebar, isSidebarOpen}) => {
   </section>
 }
 
-const mapStateToProps = ({application}) => {
+const mapStateToProps = ({application, savedBooks}) => {
   return {
-    isSidebarOpen: application.isSidebarOpen
+    isSidebarOpen: application.isSidebarOpen,
+	savedBooks: savedBooks.savedBooks
   }
 }
 

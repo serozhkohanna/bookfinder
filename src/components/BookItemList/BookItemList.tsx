@@ -4,7 +4,6 @@ import './BookItemList.scss';
 import noCoverImg from '../../assets/img/nocover.png';
 import Bookmark from "../Bookmark/Bookmark";
 
-
 const BookItemList = ({bookItem, sendCallback}) => {
   const handleMoreClick = () => {
 	sendCallback();
@@ -23,7 +22,7 @@ const BookItemList = ({bookItem, sendCallback}) => {
 		  {bookItem.volumeInfo.authors?.map((item, i) => <p key={i}>{item}</p>)}
 		</div>
 		<div className="labels">
-		  <Bookmark id={bookItem.id} />
+		  <Bookmark bookVolume={bookItem} />
 		  {bookItem.volumeInfo?.categories && <button className="button secondary is-small">
 			{bookItem.volumeInfo?.categories[0]}
           </button>}

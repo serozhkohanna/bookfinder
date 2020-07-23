@@ -16,9 +16,24 @@
 
       .modal-title {
         font-family: $Merriweather-Regular;
+        margin-bottom: 15px;
 
         h2 {
-          line-height: 1.3;
+          line-height: 1.2;
+        }
+      }
+
+      .modal-tabs {
+        &-names {
+          display: flex;
+
+          li {
+            margin-right: 25px;
+
+            &:last-child {
+              margin-right: 0;
+            }
+          }
         }
       }
     }
