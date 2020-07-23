@@ -26,24 +26,21 @@
 
   .modal-close {
     position: absolute;
-    top: 20px;
-    right: 20px;
+    top: 15px;
+    right: 15px;
     cursor: pointer;
-    //padding: 15px;
-    //border-radius: 50%;
-    //background: rgba($white, .5);
-    //display: flex;
-    //justify-content: center;
-    //align-items: center;
-    //cursor: pointer;
-    //
-    //&:hover {
-    //  background: rgba($white, .7);
-    //}
-    //
+    @media (min-width: $tablet) {
+      top: 20px;
+      right: 20px;
+    }
+
     svg {
-      width: 10px;
-      height: 10px;
+      width: 15px;
+      height: 15px;
+      @media (min-width: $tablet) {
+        width: 10px;
+        height: 10px;
+      }
     }
   }
 }

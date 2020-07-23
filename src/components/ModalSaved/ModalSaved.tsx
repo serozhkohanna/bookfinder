@@ -2,16 +2,16 @@ import React, { useState } from 'react';
 import { useHistory } from 'react-router';
 import './ModalSaved.scss';
 import { connect } from 'react-redux';
-import { setSidebar } from "../../actions/actions";
 
 import NoContentItem from '../../assets/img/nocover.png';
 import NoSavedIcon from '../../assets/img/nosaved.png';
+import CloseIcon from '../../assets/icons/close.svg';
 
 import { SEARCH_PAGE } from "../../constants/routes";
 
-import { setBookVolume } from "../../actions/actions";
+import { setBookVolume, setSidebar, setSaved } from "../../actions/actions";
 
-const ModalSaved = ({setSidebar, isSidebarOpen, savedBooks, setBookVolume}) => {
+const ModalSaved = ({setSidebar, isSidebarOpen, savedBooks, setBookVolume, setSaved}) => {
   const history = useHistory();
   const [isActiveTab, setActiveTab] = useState('tab-item1');
 
@@ -21,6 +21,10 @@ const ModalSaved = ({setSidebar, isSidebarOpen, savedBooks, setBookVolume}) => {
 
   const handleTabSwitch = (tab) => {
 	setActiveTab(tab);
+  }
+
+  const handleSaved = (item) => {
+	setSaved(item);
   }
 
   const renderTabContent = () => {
@@ -49,6 +53,9 @@ const ModalSaved = ({setSidebar, isSidebarOpen, savedBooks, setBookVolume}) => {
 				})}
 			  </div>
 			  <div className="saved-category">
+				<button className='remove-btn' onClick={() => handleSaved(item)}>
+				  <img src={CloseIcon} alt="remove"/>
+				</button>
 				<button
 				  className="button danger is-small">{item.volumeInfo.categories && item.volumeInfo.categories[0]}</button>
 			  </div>
@@ -124,8 +131,8 @@ const ModalSaved = ({setSidebar, isSidebarOpen, savedBooks, setBookVolume}) => {
 		{renderTabContent()}
 	  </div>
 	  {savedBooks?.length > 0 && <div className="modal-footer">
-		<p>{savedBooks?.length} books saved</p>
-	  </div>}
+				<p>{savedBooks?.length} books saved</p>
+			</div>}
 	  <button className="modal-close" onClick={handleSidebar}>
 		<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
 		  <path
@@ -146,7 +153,8 @@ const mapStateToProps = ({application, savedBooks}) => {
 
 const mapDispatchToProps = {
   setSidebar,
-  setBookVolume
+  setBookVolume,
+  setSaved
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ModalSaved);
