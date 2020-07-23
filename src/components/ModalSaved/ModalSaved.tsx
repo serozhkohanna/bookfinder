@@ -31,8 +31,8 @@ const ModalSaved = ({setSidebar, isSidebarOpen, savedBooks, setBookVolume}) => {
 	})
 
 	const renderTemplate = (books) => {
-	  return books.map((item) => {
-		return <div key={item.id} className='saved-card'>
+	  return books.map((item, i) => {
+		return <div key={i} className='saved-card'>
 		  <div className="saved-card-img">
 			<img src={item.volumeInfo?.imageLinks?.thumbnail || NoContentItem} alt="saved-item-img"/>
 		  </div>
