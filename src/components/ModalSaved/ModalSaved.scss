@@ -107,6 +107,7 @@
           border-radius: $border-radius-base;
           overflow: hidden;
           flex-direction: column;
+          position: relative;
           @media (min-width: $tablet) {
             flex-direction: row;
             max-height: 160px;
@@ -180,6 +181,12 @@
               .remove-btn {
                 margin-bottom: 10px;
                 cursor: pointer;
+                position: absolute;
+                top: 15px;
+                right: 15px;
+                @media (min-width: $tablet) {
+                  position: static;
+                }
 
                 img {
                   @media (min-width: $tablet) {
@@ -275,11 +282,20 @@
   }
 
   .modal-footer {
-    font-family: $WorkSans-Semibold;
-    color: $light-gray;
-    font-size: 12px;
+    display: flex;
+    justify-content: space-between;
     @media (min-width: $tablet) {
       padding: 0 10px;
+    }
+
+    p {
+      color: $light-gray;
+      font-size: 12px;
+      font-family: $WorkSans-Semibold;
+    }
+
+    a.link-bg {
+      cursor: pointer;
     }
   }
 }

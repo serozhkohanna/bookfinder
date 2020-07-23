@@ -9,9 +9,9 @@ import CloseIcon from '../../assets/icons/close.svg';
 
 import { SEARCH_PAGE } from "../../constants/routes";
 
-import { setBookVolume, setSidebar, setSaved } from "../../actions/actions";
+import { setBookVolume, setSidebar, setSaved, setRemoveAll } from "../../actions/actions";
 
-const ModalSaved = ({setSidebar, isSidebarOpen, savedBooks, setBookVolume, setSaved}) => {
+const ModalSaved = ({setSidebar, isSidebarOpen, savedBooks, setBookVolume, setSaved, setRemoveAll}) => {
   const history = useHistory();
   const [isActiveTab, setActiveTab] = useState('tab-item1');
 
@@ -25,6 +25,10 @@ const ModalSaved = ({setSidebar, isSidebarOpen, savedBooks, setBookVolume, setSa
 
   const handleSaved = (item) => {
 	setSaved(item);
+  }
+
+  const handleRemoveAll = () => {
+	setRemoveAll();
   }
 
   const renderTabContent = () => {
@@ -132,6 +136,9 @@ const ModalSaved = ({setSidebar, isSidebarOpen, savedBooks, setBookVolume, setSa
 	  </div>
 	  {savedBooks?.length > 0 && <div className="modal-footer">
 				<p>{savedBooks?.length} books saved</p>
+				<a onClick={handleRemoveAll} className="link-bg">
+					remove all
+				</a>
 			</div>}
 	  <button className="modal-close" onClick={handleSidebar}>
 		<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -154,7 +161,8 @@ const mapStateToProps = ({application, savedBooks}) => {
 const mapDispatchToProps = {
   setSidebar,
   setBookVolume,
-  setSaved
+  setSaved,
+  setRemoveAll
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ModalSaved);
