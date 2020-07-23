@@ -22,7 +22,49 @@ const ModalSaved = ({setSidebar, isSidebarOpen, savedBooks, setBookVolume}) => {
   }
 
   const renderTabContent = () => {
-    const handleMoreClick = (item) => {
+	let typeBookContent = savedBooks.filter(item => {
+	  return item.volumeInfo.printType === 'BOOK'
+	})
+
+	let typeMagazineContent = savedBooks.filter(item => {
+	  return item.volumeInfo.printType === 'MAGAZINE'
+	})
+
+	const renderTemplate = (books) => {
+	  return books.map((item) => {
+		return <div key={item.id} className='saved-card'>
+		  <div className="saved-card-img">
+			<img src={item.volumeInfo?.imageLinks?.thumbnail || NoContentItem} alt="saved-item-img"/>
+		  </div>
+		  <div className="saved-card-content">
+			<div className="saved-title">
+			  {item.volumeInfo.title}
+			</div>
+			<div className="saved-author">
+			  {item.volumeInfo.authors?.map((item, i) => {
+				return <p key={i}>{item}</p>
+			  })}
+			</div>
+			<div className="saved-category">
+			  <button
+				className="button danger is-small">{item.volumeInfo.categories && item.volumeInfo.categories[0]}</button>
+			</div>
+			<div className="saved-params">
+			  {item.accessInfo?.epub?.isAvailable || item.accessInfo?.pdf?.isAvailable &&
+							<div
+								className="param-item">Formats: <span>{item.accessInfo?.epub?.isAvailable ? 'epub' : ''}</span><span>{item.accessInfo?.pdf?.isAvailable ? 'pdf' : ''}</span>
+							</div>}
+			  <div className="param-item">Pages: <span>{item.volumeInfo.pageCount}</span></div>
+			</div>
+			<a className="show-more" onClick={() => handleMoreClick(item)}>
+			  Show more
+			</a>
+		  </div>
+		</div>
+	  })
+	}
+
+	const handleMoreClick = (item) => {
 	  history.push(`${SEARCH_PAGE}/${item.id}`);
 	  setBookVolume(item);
 	  setSidebar(false);
@@ -30,43 +72,13 @@ const ModalSaved = ({setSidebar, isSidebarOpen, savedBooks, setBookVolume}) => {
 
 	return <div className="modal-body-content">
 	  <div id="tab-item1" className={`${isActiveTab === 'tab-item1' && 'is-active'} tab-content`}>
-		{savedBooks.map((item, i) => {
-		  return <div key={i} className='saved-card'>
-			<div className="saved-card-img">
-			  <img src={item.volumeInfo?.imageLinks?.thumbnail || NoContentItem} alt="saved-item-img"/>
-			</div>
-			<div className="saved-card-content">
-			  <div className="saved-title">
-				{item.volumeInfo.title}
-			  </div>
-			  <div className="saved-author">
-				{item.volumeInfo.authors?.map((item, i) => {
-				  return <p key={i}>{item}</p>
-				})}
-			  </div>
-			  <div className="saved-category">
-				<button
-				  className="button danger is-small">{item.volumeInfo.categories && item.volumeInfo.categories[0]}</button>
-			  </div>
-			  <div className="saved-params">
-				{item.accessInfo?.epub?.isAvailable || item.accessInfo?.pdf?.isAvailable &&
-								<div
-									className="param-item">Formats: <span>{item.accessInfo?.epub?.isAvailable ? 'epub' : ''}</span><span>{item.accessInfo?.pdf?.isAvailable ? 'pdf' : ''}</span>
-								</div>}
-				  <div className="param-item">Pages: <span>{item.volumeInfo.pageCount}</span></div>
-			  </div>
-			  <a className="show-more" onClick={() => handleMoreClick(item)}>
-				Show more
-			  </a>
-			</div>
-		  </div>
-		})}
+		{renderTemplate(savedBooks)}
 	  </div>
 	  <div id="tab-item2" className={`${isActiveTab === 'tab-item2' && 'is-active'} tab-content`}>
-		tab2
+		{renderTemplate(typeBookContent)}
 	  </div>
 	  <div id="tab-item3" className={`${isActiveTab === 'tab-item3' && 'is-active'} tab-content`}>
-		tab3
+		{renderTemplate(typeMagazineContent)}
 	  </div>
 	</div>
   }
