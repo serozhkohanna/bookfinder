@@ -24,7 +24,7 @@ const BookVolume = ({bookVolume, setBookVolume}) => {
 	  fetch(url)
 		.then(res => res.json())
 		.then(data => {
-		  if (data.items.length > 0) {
+		  if (data.items?.length > 0) {
 			setItem(data.items.slice(0, 4));
 		  }
 		});
