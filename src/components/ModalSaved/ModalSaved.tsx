@@ -78,7 +78,7 @@ const ModalSaved = ({setSidebar, isSidebarOpen, savedBooks, setBookVolume, setSa
 		})
 	  } else return <div className='no-content'>
 		<div className="no-title">
-		  <h3>No saved books</h3>
+		  <h3>No saved content</h3>
 		</div>
 		<div className="img-wrapper">
 		  <img src={NoSavedIcon} alt="emty-content"/>
