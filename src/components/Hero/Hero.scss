@@ -48,8 +48,10 @@
       background-repeat: no-repeat;
       background-position-x: right;
       height: 150px;
+      z-index: -1;
       @media (min-width: $tablet) {
         content: none;
+        z-index: 5;
       }
     }
   }

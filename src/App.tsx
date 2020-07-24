@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './App.scss';
 import { HOME_PAGE, SEARCH_PAGE, DETAILS_PAGE } from "./constants/routes";
 import { Switch, Route } from 'react-router-dom';

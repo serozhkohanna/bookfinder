@@ -10,12 +10,12 @@ const BookItemList = ({bookItem, sendCallback}) => {
   }
 
   return <div className='book-item'>
-	<div className="book-item-img">
+	<div className="book-item-img" onClick={handleMoreClick}>
 	  <img src={bookItem.volumeInfo.imageLinks?.thumbnail || noCoverImg} alt="book-item-img"/>
 	</div>
 	<div className="book-item-info">
 	  <div className="info-header">
-		<div className="title">
+		<div className="title" onClick={handleMoreClick}>
 		  <h5>{bookItem.volumeInfo.title}</h5>
 		</div>
 		<div className="authors">
