@@ -44,11 +44,11 @@ const ModalSaved = ({setSidebar, isSidebarOpen, savedBooks, setBookVolume, setSa
 	  if (books.length > 0) {
 		return books.map((item, i) => {
 		  return <div key={i} className='saved-card'>
-			<div className="saved-card-img">
+			<div className="saved-card-img" onClick={() => handleMoreClick(item)}>
 			  <img src={item.volumeInfo?.imageLinks?.thumbnail || NoContentItem} alt="saved-item-img"/>
 			</div>
 			<div className="saved-card-content">
-			  <div className="saved-title">
+			  <div className="saved-title" onClick={() => handleMoreClick(item)}>
 				{item.volumeInfo.title}
 			  </div>
 			  <div className="saved-author">
