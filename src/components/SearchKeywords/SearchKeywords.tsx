@@ -53,6 +53,11 @@ const SearchKeywords = ({className, setBooks, setAdvancedRequest, hasButton}: Pr
 	setFocus(false);
 
 	history.push(SEARCH_PAGE);
+	setTimeout(setAnchor, 1000);
+  }
+
+  const setAnchor = () => {
+    return window.location.hash = '#book-request';
   }
 
   return <div className={`search ${className}`}>
