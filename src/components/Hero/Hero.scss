@@ -36,24 +36,6 @@
     .button {
       align-self: center;
     }
-
-    &:before {
-      content: '';
-      background-image: url("../../assets/icons/curve.svg");
-      position: absolute;
-      top: -10px;
-      right: -20px;
-      background-size: contain;
-      width: 100%;
-      background-repeat: no-repeat;
-      background-position-x: right;
-      height: 150px;
-      z-index: -1;
-      @media (min-width: $tablet) {
-        content: none;
-        z-index: 5;
-      }
-    }
   }
 
   &-title {

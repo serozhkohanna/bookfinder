@@ -6,18 +6,18 @@ export const GENRES = [
   },
   {
 	id: 2,
-	genre: 'FairyTale',
-	value: 'fairytale'
+	genre: 'Short story',
+	value: 'short story'
   },
   {
 	id: 3,
-	genre: 'Mystery',
-	value: 'mystery'
+	genre: 'Novel',
+	value: 'novel'
   },
   {
 	id: 4,
-	genre: 'Science Fiction',
-	value: 'science fiction'
+	genre: 'Mystery',
+	value: 'mystery'
   },
   {
 	id: 5,
@@ -26,8 +26,8 @@ export const GENRES = [
   },
   {
 	id: 6,
-	genre: 'Fantasy',
-	value: 'fantasy'
+	genre: 'Poetry',
+	value: 'poetry'
   },
   {
 	id: 7,
@@ -51,8 +51,8 @@ export const GENRES = [
   },
   {
 	id: 11,
-	genre: 'Technology',
-	value: 'technology'
+	genre: 'Detective',
+	value: 'detective'
   },
   {
 	id: 12,
