@@ -52,6 +52,11 @@
       display: flex;
       align-items: flex-end;
       padding-bottom: 10px;
+
+      .search-input {
+        font-size: 14px;
+        color: $deep-blue;
+      }
     }
   }
 
