@@ -19,7 +19,6 @@
   }
 
   &-title {
-    //max-width: 565px;
     font-family: $Merriweather-Regular;
     position: relative;
     margin-bottom: 50px;
@@ -60,7 +59,7 @@
     }
 
     &:before {
-      content: '';
+      content: none;
       position: absolute;
       background: url("../../assets/img/curve1.svg") no-repeat center center;
       background-size: contain;
@@ -73,6 +72,10 @@
         top: -10px;
         height: 200px;
         width: 340px;
+      }
+
+      @media (min-width: $laptop) {
+        content: '';
       }
     }
   }
