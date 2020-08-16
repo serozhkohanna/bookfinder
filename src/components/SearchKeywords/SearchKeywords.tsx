@@ -16,10 +16,11 @@ interface Props {
   className: string;
   setBooks: any;
   setAdvancedRequest: any;
+  hasButton: boolean;
   // params: SearchParams
 }
 
-const SearchKeywords = ({className, setBooks, setAdvancedRequest}: Props, searchInput: any) => {
+const SearchKeywords = ({className, setBooks, setAdvancedRequest, hasButton}: Props, searchInput: any) => {
   const [searchValue, setValue] = useState('');
   const [isFocus, setFocus] = useState(false);
 
@@ -52,21 +53,27 @@ const SearchKeywords = ({className, setBooks, setAdvancedRequest}: Props, search
 	setFocus(false);
 
 	history.push(SEARCH_PAGE);
+	setTimeout(setAnchor, 1000);
+  }
+
+  const setAnchor = () => {
+    return window.location.hash = '#book-request';
   }
 
   return <div className={`search ${className}`}>
-	<div className={`search-component ${isFocus && 'active'}`} onClick={handleSearchComponentClick}>
+	<div className={`search-component ${(isFocus || hasButton) && 'active'}`} onClick={handleSearchComponentClick}>
 	  <form className="search-input-wrapper" onSubmit={handleSearchSubmit}>
-		<input ref={(input) => searchInput = input} value={searchValue} onChange={handleSearchChange}
+		<input ref={(input) => searchInput = input} minLength={1} required value={searchValue} onChange={handleSearchChange}
 			   className='search-input' placeholder='Enter keywords'
 			   type="text"/>
+		{hasButton && <button className='button btn-submit secondary is-large'>submit</button>}
 	  </form>
 	  <div className="search-icon">
 		<img src={SearchIcon} alt="search-icon"/>
 	  </div>
-	  <div className="close-icon">
+	  {!hasButton && <div className="close-icon">
 		<img src={CloseIcon} alt="close-icon"/>
-	  </div>
+	  </div>}
 	</div>
   </div>
 }

@@ -24,6 +24,14 @@ const BrowseByGenre = ({setBooks, setAdvancedRequest}) => {
 	setAdvancedRequest(params);
 
 	history.push(SEARCH_PAGE);
+	setTimeout(setAnchor, 1000);
+  }
+
+//TODO
+//refactor setAnchor method, same is in SearchKeywords.tsx file, move to separate common file;
+
+  const setAnchor = () => {
+	return window.location.hash = '#book-request';
   }
 
   const genreItem = GENRES.map((item: GenreItem) => {

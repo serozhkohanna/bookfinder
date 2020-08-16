@@ -38,6 +38,12 @@ const FormAdvanced = ({setBooks, setAdvancedRequest}: Props, {searchTitle, searc
 
 	setBooks(params);
 	setAdvancedRequest(params);
+
+	setTimeout(setAnchor, 1000);
+  }
+
+  const setAnchor = () => {
+	return window.location.hash = '#book-request';
   }
 
   const handlePayment = (type) => {

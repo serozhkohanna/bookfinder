@@ -28,6 +28,7 @@
 
       .search-input {
         min-width: 150px;
+        width: 100%;
       }
     }
   }
@@ -51,6 +52,21 @@
       left: 0;
       transition: $easing;
     }
+
+    .btn-submit {
+      position: absolute;
+      right: 0;
+      bottom: -80px;
+      width: 160px;
+      left: 25%;
+
+      @media (min-width: $tablet) {
+        right: -190px;
+        left: auto;
+        bottom: 0;
+      }
+    }
+
   }
 
   &-input {

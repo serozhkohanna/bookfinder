@@ -21,7 +21,7 @@
     &-item {
       display: flex;
       flex-direction: column;
-      margin-bottom: 20px;
+      margin-bottom: 25px;
 
       @media (min-width: $tablet) {
         margin-bottom: 0;
@@ -41,14 +41,20 @@
       }
 
       .input-animated {
-        width: 190px;
+        width: 100%;
+        @media (min-width: $tablet) {
+          width: 190px;
+        }
 
         + label {
-          width: 250px;
+          width: 100%;
           border-top: 3px solid $yellow;
           font-family: $WorkSans-Regular;
           padding: 5px;
           font-size: 12px;
+          @media (min-width: $tablet) {
+            width: 250px;
+          }
 
           > span {
             color: $deep-blue;

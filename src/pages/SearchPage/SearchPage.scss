@@ -1,0 +1,41 @@
+@import "src/assets/colors";
+@import "src/assets/variables";
+
+#search-page {
+  .container {
+    position: relative;
+  }
+
+  .nav-switch {
+    width: 100%;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    top: 40px;
+    @media (min-width: $tablet) {
+      justify-content: flex-end;
+    }
+    @media (min-width: $laptop) {
+      top: 50px;
+    }
+
+    .nav-link {
+      padding: 7px 10px;
+      background: $sky-blue;
+      opacity: 1;
+      cursor: pointer;
+      transition: $easing;
+      font-size: 12px;
+      width: 130px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: $WorkSans-Medium;
+
+      &.is-active, &:hover {
+        opacity: .5;
+        transition: $easing;
+      }
+    }
+  }
+}
