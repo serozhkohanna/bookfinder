@@ -50,8 +50,10 @@
 
   .search-component {
     width: 100%;
+    padding: 0 10px;
     @media (min-width: $tablet) {
       width: auto;
+      padding: 0;
     }
 
     .search-input-wrapper {
@@ -67,6 +69,13 @@
       .search-input {
         font-size: 14px;
         color: $deep-blue;
+      }
+    }
+
+    .search-icon {
+      display: none;
+      @media (min-width: $tablet) {
+        display: block;
       }
     }
   }
