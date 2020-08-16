@@ -10,8 +10,14 @@
     width: 100%;
     position: absolute;
     display: flex;
-    justify-content: flex-end;
-    top: 50px;
+    justify-content: center;
+    top: 40px;
+    @media (min-width: $tablet) {
+      justify-content: flex-end;
+    }
+    @media (min-width: $laptop) {
+      top: 50px;
+    }
 
     .nav-link {
       padding: 7px 10px;

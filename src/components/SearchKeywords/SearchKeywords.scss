@@ -55,9 +55,16 @@
 
     .btn-submit {
       position: absolute;
-      right: -190px;
-      bottom: 0;
+      right: 0;
+      bottom: -80px;
       width: 160px;
+      left: 25%;
+
+      @media (min-width: $tablet) {
+        right: -190px;
+        left: auto;
+        bottom: 0;
+      }
     }
 
   }

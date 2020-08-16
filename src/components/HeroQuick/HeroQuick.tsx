@@ -12,7 +12,7 @@ const HeroQuick = () => {
 	<h3 className='hero-quick-title'>Quick <b><i>book</i></b> search</h3>
 	<SearchKeywords hasButton={true}/>
 	<div className={`label-text ${isLabelVisible && 'is-visible'}`}>
-	  <p>Enter few words to start search</p>
+	  <p>Enter few words to start searching</p>
 	  <button className="button btn-close" onClick={() => setLabelVisible(false)}>
 		<svg width="10" height="10" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
 		  <path
