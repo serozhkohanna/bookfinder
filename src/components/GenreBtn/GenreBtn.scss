@@ -5,20 +5,15 @@
   max-width: 100%;
   padding: 0 30px;
   height: 35px;
+  background: $sky-blue;
+
+  &:hover {
+    background: $deep-blue;
+    color: $white;
+  }
 
   @media (min-width: $tablet) {
     height: 45px;
-    font-size: 16px;
     padding: 0 40px;
-  }
-
-  &.secondary {
-    border: 1px solid transparent;
-
-    &:hover {
-      background: $white;
-      color: $deep-blue;
-      border: 1px solid $deep-blue;
-    }
   }
 }

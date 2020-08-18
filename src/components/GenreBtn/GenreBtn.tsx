@@ -14,7 +14,7 @@ const GenreBtn = ({classes, btnText, setData, value}: Props) => {
 	setData(value);
   }
 
-  return <button onClick={handleClick} className={`button secondary ${classes}`}>{btnText}</button>
+  return <button onClick={handleClick} className={`button ${classes}`}>{btnText}</button>
 }
 
 export default GenreBtn;

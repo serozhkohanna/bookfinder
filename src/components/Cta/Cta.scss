@@ -57,26 +57,5 @@
       width: auto;
       position: static;
     }
-
-    &:before {
-      content: none;
-      position: absolute;
-      background: url("../../assets/img/curve1.svg") no-repeat center center;
-      background-size: contain;
-      height: 200px;
-      width: 250px;
-      top: -80px;
-      z-index: -1;
-
-      @media (min-width: $tablet) {
-        top: -10px;
-        height: 200px;
-        width: 340px;
-      }
-
-      @media (min-width: $laptop) {
-        content: '';
-      }
-    }
   }
 }

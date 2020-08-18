@@ -11,6 +11,7 @@ import GenreBtn from "../GenreBtn/GenreBtn";
 
 import { setBooks, setAdvancedRequest } from "../../actions/actions";
 import { SEARCH_PAGE } from "../../constants/routes";
+import BooksImg from '../../assets/img/books.png';
 
 const BrowseByGenre = ({setBooks, setAdvancedRequest}) => {
   let history = useHistory();
@@ -46,6 +47,7 @@ const BrowseByGenre = ({setBooks, setAdvancedRequest}) => {
 	  {genreItem}
 	</div>
 	<div className="genres-illustration">
+	  <img src={BooksImg} alt="books"/>
 	</div>
   </section>
 }
