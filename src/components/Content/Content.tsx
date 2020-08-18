@@ -9,6 +9,7 @@ import SortParams from "../SortParams/SortParams";
 import FilterParams from "../FilterParams/FilterParams";
 import BookItemList from "../BookItemList/BookItemList";
 import Pagination from "../Pagination/Pagination";
+import NoContent from "./NoContent/NoContent";
 
 const Content = ({booksList, params, setBookVolume }) => {
   let history = useHistory();
@@ -33,13 +34,13 @@ const Content = ({booksList, params, setBookVolume }) => {
 	  }
 	  <div className="content-body">
 		{booksList.apiResponse.totalItems >= 0 && <FilterParams/>}
-		{booksList.apiResponse.totalItems > 0 && <div className="books-list">
+		{booksList.apiResponse.totalItems > 0 ? <div className="books-list">
 		  {booksList.apiResponse.items?.map((item, i) => {
 			return (
 			  <BookItemList sendCallback={() => receiveCallback(item)} key={i} bookItem={item}/>
 			)
 		  })}
-        </div>}
+        </div> : booksList.apiResponse.totalItems === 0 && <NoContent/>}
 	  </div>
 	  <div className="content-footer">
 		{pages > 0 && <Pagination pages={pages}/>}
