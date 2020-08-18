@@ -33,41 +33,44 @@
   }
 
   &-content {
-    @media (min-width: $tablet) {
-      max-width: 70%;
-    }
+    width: 100%;
+    margin-bottom: 30px;
     @media (min-width: $laptop) {
-      max-width: 560px;
+      max-width: 710px;
+      margin-bottom: 0;
     }
 
     .button {
-      margin-bottom: 30px;
-      margin-right: 20px;
+      margin-bottom: 15px;
+      margin-right: 10px;
 
       @media (min-width: $laptop) {
-        margin-bottom: 40px;
-        margin-right: 50px;
-        border-radius: 10px;
-
-        &:nth-child(3) {
-          margin-right: 0;
-        }
+        margin-bottom: 20px;
+        margin-right: 20px;
+        border-radius: $border-radius-base;
       }
     }
   }
 
   &-illustration {
-    background: url("../../assets/img/space.svg") no-repeat;
-    background-size: contain;
     flex-grow: 1;
-    background-position-x: center;
-    background-position-y: top;
-    height: 250px;
-    width: 100%;
-
+    display: flex;
+    justify-content: center;
+    max-width: 200px;
+    margin: 0 auto;
     @media (min-width: $tablet) {
-      height: auto;
-      width: auto;
+      width: 240px;
+      height: 180px;
+      max-width: 100%;
+      margin: 0;
+    }
+
+    img {
+      width: 100%;
+      @media (min-width: $tablet) {
+        height: 100%;
+        width: auto;
+      }
     }
   }
 }

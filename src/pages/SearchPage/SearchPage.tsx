@@ -31,7 +31,9 @@ const SearchPage = () => {
 		</a>
 	  </nav>
 	  {renderSearch()}
-	  <BookRequest/>
+	  <section className="book-request" id='book-request'>
+		<BookRequest />
+	  </section>
 	  <Content/>
 	</div>
   </main>

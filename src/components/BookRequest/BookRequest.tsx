@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import './BookRequest.scss';
 import { connect } from 'react-redux';
 
@@ -19,9 +19,7 @@ const BookRequest = ({bookRequest}) => {
 	}
   }
 
-  return <section className="book-request" id='book-request'>
-	{renderRequestInfo()}
-  </section>
+  return renderRequestInfo();
 }
 
 const mapStateToProps = ({advancedRequest}) => {

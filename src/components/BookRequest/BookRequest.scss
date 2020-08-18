@@ -2,12 +2,9 @@
 @import "src/assets/variables";
 
 .book-request {
-  max-width: 550px;
-  margin: 0 auto 60px;
-  text-align: center;
-
   &-title {
     font-family: $Merriweather-Regular;
+    word-break: break-all;
 
     span {
       &.name {

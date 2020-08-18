@@ -5,9 +5,8 @@
   display: flex;
   margin-bottom: 30px;
   position: relative;
-  //position: sticky;
-  //top: 80px;
   flex-direction: column;
+  padding-bottom: 10px;
   @media (min-width: $tablet) {
     flex-direction: row;
   }

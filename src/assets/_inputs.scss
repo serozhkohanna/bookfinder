@@ -50,3 +50,45 @@
   width: 150px;
   border-bottom: 3px solid $yellow;
 }
+
+.tags-input {
+  display: flex;
+  align-items: center;
+
+  width: 100%;
+  border-bottom: 1px solid $deep-blue;
+  overflow: auto;
+
+  .tag {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 5px;
+    padding: 0 10px;
+    white-space: nowrap;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    .tag-close-icon {
+      margin-left: 10px;
+    }
+  }
+
+  input {
+    padding: 4px 10px 0;
+    height: 100%;
+    width: 100%;
+    min-width: 120px;
+    min-height: 50px;
+  }
+
+  .tags-list {
+    display: flex;
+    margin-bottom: 10px;
+    @media (min-width: $tablet) {
+     margin-bottom: 0;
+    }
+  }
+}
