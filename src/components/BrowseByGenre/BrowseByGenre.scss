@@ -67,6 +67,7 @@
 
     img {
       width: 100%;
+      height: intrinsic;
       @media (min-width: $tablet) {
         height: 100%;
         width: auto;
