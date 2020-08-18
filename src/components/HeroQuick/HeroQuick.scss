@@ -92,7 +92,9 @@
     .search-icon {
       display: none;
       @media (min-width: $tablet) {
-        display: block;
+        display: flex;
+        align-items: center;
+        height: 100%;
       }
     }
   }

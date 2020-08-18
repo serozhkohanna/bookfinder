@@ -86,7 +86,7 @@ const SearchKeywords = ({className, setBooks, setAdvancedRequest, hasButton}: Pr
 		{hasButton && <div className="tags-input">
 		  <ul className='tags-list'>
 			{tags.map((tag, index) => (
-			  <li key={index} className="tag button is-small secondary">
+			  <li key={index} className="tag button is-medium secondary">
 				<span>{tag}</span>
 				<i className="tag-close-icon" onClick={() => removeTags(index)}>
 				  <svg width="7" height="7" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">

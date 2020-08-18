@@ -54,9 +54,8 @@
 .tags-input {
   display: flex;
   align-items: center;
-  min-height: 48px;
-  width: 480px;
-  padding: 0 8px;
+
+  width: 100%;
   border-bottom: 1px solid $deep-blue;
   overflow: auto;
 
@@ -65,8 +64,12 @@
     align-items: center;
     justify-content: center;
     margin-right: 5px;
-    padding: 0 7px;
+    padding: 0 10px;
     white-space: nowrap;
+
+    &:last-child {
+      margin-right: 0;
+    }
 
     .tag-close-icon {
       margin-left: 10px;
@@ -74,18 +77,18 @@
   }
 
   input {
-    flex: 1;
-    border: none;
-    height: 46px;
-    font-size: 14px;
-    padding: 4px 0 0 0;
-
-    &:focus {
-      outline: transparent;
-    }
+    padding: 4px 10px 0;
+    height: 100%;
+    width: 100%;
+    min-width: 120px;
+    min-height: 50px;
   }
 
-  ul {
+  .tags-list {
     display: flex;
+    margin-bottom: 10px;
+    @media (min-width: $tablet) {
+     margin-bottom: 0;
+    }
   }
 }
