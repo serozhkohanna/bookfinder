@@ -11,7 +11,7 @@ const NoContent = () => {
 	  <img src={NoContentImg} alt="no-content"/>
 	</div>
 	<div className="title">
-	  <p>Sorry, we could not find any matches for you request: <span><BookRequest/></span></p>
+	  <div>Sorry, we could not find any matches for you request: <span><BookRequest/></span></div>
 	</div>
   </div>
 }

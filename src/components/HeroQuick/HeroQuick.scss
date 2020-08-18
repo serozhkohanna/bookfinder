@@ -58,17 +58,34 @@
 
     .search-input-wrapper {
       width: 100%;
-      height: 40px;
+      height: 100%;
       display: flex;
       align-items: flex-end;
-      padding-bottom: 10px;
       @media (min-width: $tablet) {
-        width: 400px;
+        width: 500px;
       }
 
-      .search-input {
-        font-size: 14px;
-        color: $deep-blue;
+      .tags-input {
+        border: none;
+        flex-wrap: wrap;
+        @media (min-width: $tablet) {
+          flex-wrap: nowrap;
+        }
+
+        .tags-list {
+          flex-wrap: wrap;
+          @media (min-width: $tablet) {
+            flex-wrap: nowrap;
+          }
+
+          .tag {
+            margin-top: 5px;
+
+            @media (min-width: $tablet) {
+              margin-top: 0;
+            }
+          }
+        }
       }
     }
 

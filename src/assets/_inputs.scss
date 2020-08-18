@@ -50,3 +50,42 @@
   width: 150px;
   border-bottom: 3px solid $yellow;
 }
+
+.tags-input {
+  display: flex;
+  align-items: center;
+  min-height: 48px;
+  width: 480px;
+  padding: 0 8px;
+  border-bottom: 1px solid $deep-blue;
+  overflow: auto;
+
+  .tag {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 5px;
+    padding: 0 7px;
+    white-space: nowrap;
+
+    .tag-close-icon {
+      margin-left: 10px;
+    }
+  }
+
+  input {
+    flex: 1;
+    border: none;
+    height: 46px;
+    font-size: 14px;
+    padding: 4px 0 0 0;
+
+    &:focus {
+      outline: transparent;
+    }
+  }
+
+  ul {
+    display: flex;
+  }
+}
