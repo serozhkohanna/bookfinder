@@ -78,12 +78,12 @@ const ModalSaved = ({setSidebar, isSidebarOpen, savedBooks, setBookVolume, setSa
 		})
 	  } else return <div className='no-content'>
 		<div className="no-title">
-		  <h3>No saved content</h3>
+		  <h5>No saved content</h5>
 		</div>
 		<div className="img-wrapper">
 		  <img src={NoSavedIcon} alt="emty-content"/>
 		</div>
-		<button className="button secondary is-large">GET STARTEG</button>
+		<button className="button secondary is-large">GET STARTED</button>
 	  </div>
 	}
 
@@ -111,10 +111,10 @@ const ModalSaved = ({setSidebar, isSidebarOpen, savedBooks, setBookVolume, setSa
 	  <div className="modal-header">
 		<div className="modal-header-content">
 		  <div className="modal-title">
-			<h2>
+			<h4>
 			  Your <i><b>saved </b></i>
 			  books
-			</h2>
+			</h4>
 		  </div>
 		  <div className="modal-tabs">
 			<nav className="modal-tabs-names">
@@ -127,19 +127,19 @@ const ModalSaved = ({setSidebar, isSidebarOpen, savedBooks, setBookVolume, setSa
 			</nav>
 		  </div>
 		</div>
-		<div className="modal-header-img">
+		{/*<div className="modal-header-img">*/}
 
-		</div>
+		{/*</div>*/}
 	  </div>
 	  <div className="modal-body">
 		{renderTabContent()}
 	  </div>
-	  {savedBooks?.length > 0 && <div className="modal-footer">
-				<p>{savedBooks?.length} books saved</p>
-				<a onClick={handleRemoveAll} className="link-bg">
-					remove all
-				</a>
-			</div>}
+	  <div className="modal-footer">
+		<p>{savedBooks?.length} books saved</p>
+		<a onClick={handleRemoveAll} className="link-bg">
+		  remove all
+		</a>
+	  </div>
 	  <button className="modal-close" onClick={handleSidebar}>
 		<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
 		  <path

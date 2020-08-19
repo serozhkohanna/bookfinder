@@ -19,6 +19,11 @@ main {
   width: 100%;
   overflow-x: hidden;
 
+  &.scroll-disabled {
+    overflow: hidden;
+    height: 100vh;
+  }
+
   &-content {
     flex-grow: 1;
     flex-shrink: 0;
