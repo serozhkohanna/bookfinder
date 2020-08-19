@@ -29,7 +29,6 @@
       .modal-title {
         font-family: $Merriweather-Regular;
         margin-bottom: 25px;
-        max-width: 70%;
 
         @media (min-width: $tablet) {
           max-width: 100%;
@@ -92,12 +91,11 @@
   }
 
   .modal-body {
-    //margin-bottom: 60px;
+    height: 0;
     margin-bottom: auto;
     order: 1;
     @media (min-width: $tablet) {
       padding: 0 10px;
-      height: 0;
     }
 
     &-content {
