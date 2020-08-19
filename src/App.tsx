@@ -1,7 +1,8 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import './App.scss';
 import { HOME_PAGE, SEARCH_PAGE, DETAILS_PAGE } from "./constants/routes";
 import { Switch, Route } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 import MainPage from "./pages/MainPage/MainPage";
 import SearchPage from "./pages/SearchPage/SearchPage";
@@ -12,9 +13,10 @@ import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import ModalSaved from "./components/ModalSaved/ModalSaved";
 
-function App() {
+function App({isSidebarOpen}) {
+  console.log(isSidebarOpen);
   return (
-	<div className="page">
+	<div className={`page ${isSidebarOpen && 'scroll-disabled'}`}>
 	  <Header/>
 	  <ModalSaved/>
 	  <div className="page-content">
@@ -30,4 +32,10 @@ function App() {
   );
 }
 
-export default App;
+const mapStateToProps = ({application}) => {
+  return {
+	isSidebarOpen: application.isSidebarOpen
+  }
+}
+
+export default connect(mapStateToProps)(App);

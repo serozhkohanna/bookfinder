@@ -6,16 +6,20 @@
   padding: 40px 20px 40px;
   height: 100vh;
   overflow: auto;
+  background: $white;
   @media (min-width: $tablet) {
     width: 700px;
     max-height: 550px;
     height: 100%;
-    border-radius: $border-radius-base;
     padding: 50px 40px 25px;
+  }
+  @media (min-width: $laptop) {
+    width: 800px;
+    max-height: 600px;
   }
 
   .modal-header {
-    margin-bottom: 40px;
+    margin-bottom: 20px;
     display: flex;
 
     &-content {
@@ -24,7 +28,7 @@
 
       .modal-title {
         font-family: $Merriweather-Regular;
-        margin-bottom: 15px;
+        margin-bottom: 25px;
         max-width: 70%;
 
         @media (min-width: $tablet) {
@@ -90,8 +94,10 @@
   .modal-body {
     //margin-bottom: 60px;
     margin-bottom: auto;
+    order: 1;
     @media (min-width: $tablet) {
       padding: 0 10px;
+      height: 0;
     }
 
     &-content {
@@ -102,30 +108,34 @@
 
         .saved-card {
           margin-bottom: 25px;
-          //box-shadow: $box-shadow-small;
           display: flex;
           border-radius: $border-radius-base;
+          background: $sky-blue;
           overflow: hidden;
           flex-direction: column;
           position: relative;
           @media (min-width: $tablet) {
             flex-direction: row;
             max-height: 160px;
+            background: $white;
+          }
 
-            &:hover {
-              box-shadow: $box-shadow-medium;
-              transform: scaleX(1.03);
-              transition: $easing;
+          &:after {
+            height: 2px;
+            width: 100%;
+            background: $sky-blue;
+            bottom: auto;
+            left: 0;
+            position: absolute;
+            @media (min-width: $tablet) {
+              content: '';
             }
           }
 
-          &:before {
-            content: '';
-            width: 100%;
-            position: absolute;
-            height: 1px;
-            background: $sky-blue;
-            bottom: -15px;
+          &:first-child {
+            &:after {
+              content: none;
+            }
           }
 
           &-img {
@@ -266,7 +276,7 @@
           display: flex;
           flex-direction: column;
           align-items: center;
-          padding: 10px;
+          padding: 10px 10px 40px;
 
           .no-title {
             font-family: $Merriweather-Bold;
@@ -275,7 +285,10 @@
           }
 
           .img-wrapper {
-            margin-bottom: 60px;
+            margin-bottom: 40px;
+            @media (min-width: $tablet) {
+              width: 150px;
+            }
           }
 
           .button {
@@ -295,6 +308,7 @@
   .modal-footer {
     display: flex;
     justify-content: space-between;
+    margin-bottom: 30px;
     @media (min-width: $tablet) {
       padding: 0 10px;
     }
