@@ -127,9 +127,6 @@ const ModalSaved = ({setSidebar, isSidebarOpen, savedBooks, setBookVolume, setSa
 			</nav>
 		  </div>
 		</div>
-		{/*<div className="modal-header-img">*/}
-
-		{/*</div>*/}
 	  </div>
 	  <div className="modal-body">
 		{renderTabContent()}
