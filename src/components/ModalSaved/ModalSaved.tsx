@@ -31,6 +31,11 @@ const ModalSaved = ({setSidebar, isSidebarOpen, savedBooks, setBookVolume, setSa
 	setRemoveAll();
   }
 
+  const handleStartClick = () => {
+	setSidebar(false);
+	history.push(SEARCH_PAGE);
+  }
+
   const renderTabContent = () => {
 	let typeBookContent = savedBooks.filter(item => {
 	  return item.volumeInfo.printType === 'BOOK'
@@ -83,7 +88,7 @@ const ModalSaved = ({setSidebar, isSidebarOpen, savedBooks, setBookVolume, setSa
 		<div className="img-wrapper">
 		  <img src={NoSavedIcon} alt="emty-content"/>
 		</div>
-		<button className="button secondary is-large">GET STARTED</button>
+		<button className="button secondary is-large" onClick={handleStartClick}>GET STARTED</button>
 	  </div>
 	}
 
