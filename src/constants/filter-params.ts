@@ -2,6 +2,7 @@ export const filters = [
   {
 	id: 1,
 	type: 'Languages',
+	name: 'langRestrict',
 	options: [
 	  {
 		name: 'English',
@@ -20,6 +21,7 @@ export const filters = [
   {
 	id: 2,
 	type: 'Content',
+	name: 'printType',
 	options: [
 	  {
 		name: 'Books',
@@ -38,6 +40,7 @@ export const filters = [
   {
 	id: 3,
 	type: 'Payment',
+	name: 'filter',
 	options: [
 	  {
 		name: 'All',
