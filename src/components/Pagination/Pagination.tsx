@@ -8,14 +8,14 @@ const Pagination = ({params, setBooks, setAdvancedRequest, pages}) => {
 	switch (type) {
 	  case 'next':
 		if (params.startIndex < pages) {
-		  params.startIndex += 10;
+		  params.startIndex += 1;
 		  setAdvancedRequest(params);
 		  setBooks(params);
 		}
 		break;
 	  case 'prev':
 		if (params.startIndex !== 0) {
-		  params.startIndex -= 10;
+		  params.startIndex -= 1;
 		  setAdvancedRequest(params);
 		  setBooks(params);
 		}
