@@ -19,7 +19,7 @@ const BookItemList = ({bookItem, sendCallback}) => {
 		  <h5>{bookItem.volumeInfo.title}</h5>
 		</div>
 		<div className="authors">
-		  {bookItem.volumeInfo.authors?.map((item, i) => <p key={i}>{item}</p>)}
+		  {bookItem.volumeInfo.authors?.slice(0, 3).map((item, i) => <p key={i}>{item}</p>)}
 		</div>
 		<div className="labels">
 		  <Bookmark bookVolume={bookItem} />

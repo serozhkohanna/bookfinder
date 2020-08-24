@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './Pagination.scss';
 import { connect } from 'react-redux';
 import { setBooks, setAdvancedRequest } from "../../actions/actions";
@@ -8,14 +8,14 @@ const Pagination = ({params, setBooks, setAdvancedRequest, pages}) => {
 	switch (type) {
 	  case 'next':
 		if (params.startIndex < pages) {
-		  params.startIndex += 1;
+		  params.startIndex += 10;
 		  setAdvancedRequest(params);
 		  setBooks(params);
 		}
 		break;
 	  case 'prev':
 		if (params.startIndex !== 0) {
-		  params.startIndex -= 1;
+		  params.startIndex -= 10;
 		  setAdvancedRequest(params);
 		  setBooks(params);
 		}
