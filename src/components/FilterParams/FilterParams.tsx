@@ -23,6 +23,16 @@ const FilterParams = ({params, setAdvancedRequest, setBooks}) => {
 	}
   }
 
+  const handleReset = () => {
+	params.langRestrict = '';
+	params.printType = '';
+	params.filter = '';
+
+	setAdvancedRequest(params);
+	setBooks(params);
+	setAccordion([]);
+  }
+
   const handleParamChange = (e, type) => {
 	switch (type) {
 	  case 'Languages':
@@ -90,6 +100,7 @@ const FilterParams = ({params, setAdvancedRequest, setBooks}) => {
 		)
 	  })
 	}
+	<a className="link-bg button-reset" onClick={handleReset}>reset filters</a>
   </aside>
 }
 
